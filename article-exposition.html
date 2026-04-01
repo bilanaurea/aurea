@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-30LC353DER"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-30LC353DER");
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quelle palette selon l'exposition de votre pièce — AUREA</title>
+<meta name="description" content="Nord, sud, est, ouest — l'exposition d'une pièce change tout. Le guide complet pour choisir sa palette couleur selon la lumière naturelle.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  :root { --cream:#F7F2EE; --dark:#18160F; --gold:#B8976A; --text:#3A3428; --line:rgba(184,151,106,0.2); --muted:#8A7A5A; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Jost',sans-serif; font-weight:300; background:var(--cream); color:var(--text); overflow-x:hidden; }
+
+  header { position:fixed; top:0; left:0; right:0; z-index:100; padding:20px 48px; display:flex; justify-content:space-between; align-items:center; background:rgba(247,242,238,0.92); backdrop-filter:blur(12px); border-bottom:1px solid var(--line); }
+  .logo { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:300; letter-spacing:0.4em; text-transform:uppercase; color:var(--dark); text-decoration:none; }
+  .logo span { color:var(--gold); }
+  nav { display:flex; gap:32px; }
+  nav a { font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); text-decoration:none; transition:color 0.3s; }
+  nav a:hover { color:var(--dark); }
+
+  .article-hero { height:65vh; min-height:460px; position:relative; overflow:hidden; background:url('fenetre et lumiere.png') center/cover no-repeat; }
+  .article-hero-veil { position:absolute; inset:0; background:linear-gradient(to bottom, rgba(24,22,15,0.15) 0%, rgba(24,22,15,0.68) 100%); }
+  .article-hero-content { position:absolute; bottom:0; left:0; right:0; padding:64px 80px; }
+  .article-back { display:inline-flex; align-items:center; gap:10px; font-size:10px; letter-spacing:0.3em; text-transform:uppercase; color:rgba(255,255,255,0.5); text-decoration:none; margin-bottom:24px; transition:color 0.3s; }
+  .article-back:hover { color:var(--gold); }
+  .article-tag { display:inline-block; font-size:9px; letter-spacing:0.35em; text-transform:uppercase; color:#fff; background:var(--gold); padding:7px 14px; margin-bottom:20px; }
+  .article-hero-title { font-family:'Cormorant Garamond',serif; font-size:clamp(36px,5vw,68px); font-weight:300; color:#fff; line-height:1.1; max-width:800px; }
+  .article-hero-title em { font-style:italic; color:rgba(247,242,238,0.5); }
+  .article-hero-meta { display:flex; gap:32px; margin-top:24px; }
+  .article-hero-meta span { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.4); }
+  .article-hero-meta span b { color:var(--gold); font-weight:300; margin-right:6px; }
+
+  .article-body { max-width:780px; margin:0 auto; padding:80px 48px 120px; }
+  .article-intro { font-family:'Cormorant Garamond',serif; font-size:clamp(20px,2.5vw,26px); font-weight:300; line-height:1.7; color:var(--dark); margin-bottom:56px; padding-bottom:56px; border-bottom:1px solid var(--line); }
+  .article-intro em { font-style:italic; color:var(--muted); }
+  h2.section-h { font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:300; color:var(--dark); margin-bottom:20px; line-height:1.2; }
+  h2.section-h em { font-style:italic; color:var(--gold); }
+  .article-p { font-size:15px; line-height:2; color:var(--text); margin-bottom:24px; }
+  .article-p strong { color:var(--dark); font-weight:400; }
+
+  /* EXPOSITION GRID */
+  .expo-grid { display:grid; grid-template-columns:1fr 1fr; gap:3px; margin:48px 0; }
+  .expo-card { padding:40px 36px; position:relative; overflow:hidden; }
+  .expo-card:nth-child(1) { background:var(--dark); }
+  .expo-card:nth-child(2) { background:#F0EAE0; }
+  .expo-card:nth-child(3) { background:#E8F0E8; }
+  .expo-card:nth-child(4) { background:#EAE0F0; }
+  .expo-direction { font-size:48px; font-weight:200; position:absolute; top:24px; right:28px; opacity:0.15; }
+  .expo-card:nth-child(1) .expo-direction { color:#fff; }
+  .expo-label { font-size:9px; letter-spacing:0.35em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
+  .expo-title { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:300; margin-bottom:16px; }
+  .expo-card:nth-child(1) .expo-title { color:#fff; }
+  .expo-card:nth-child(1) .expo-desc { color:rgba(247,242,238,0.6); }
+  .expo-desc { font-size:13px; line-height:1.85; color:var(--text); margin-bottom:16px; }
+  .expo-palettes { font-size:12px; color:var(--muted); }
+  .expo-card:nth-child(1) .expo-palettes { color:rgba(184,151,106,0.7); }
+  .expo-palettes span { display:block; padding:3px 0; }
+  .expo-palettes span::before { content:'→ '; color:var(--gold); }
+
+  .pull-quote { padding:48px 0; margin:48px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .pull-quote p { font-family:'Cormorant Garamond',serif; font-size:clamp(22px,3vw,32px); font-weight:300; font-style:italic; color:var(--dark); line-height:1.5; }
+  .pull-quote cite { display:block; margin-top:16px; font-size:10px; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); font-style:normal; }
+
+  /* CTA PALETTES */
+  .cta-palettes { background:#fff; padding:40px; margin:48px 0; display:flex; justify-content:space-between; align-items:center; gap:24px; }
+  .cta-palettes-text h3 { font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:300; color:var(--dark); margin-bottom:8px; }
+  .cta-palettes-text p { font-size:13px; color:var(--muted); line-height:1.7; }
+  .cta-palettes-link { flex-shrink:0; display:inline-flex; align-items:center; gap:12px; font-size:10px; letter-spacing:0.3em; text-transform:uppercase; color:var(--dark); text-decoration:none; border-bottom:1px solid var(--gold); padding-bottom:4px; white-space:nowrap; transition:gap 0.3s; }
+  .cta-palettes-link:hover { gap:20px; }
+
+  .articles-nav { display:grid; grid-template-columns:1fr 1fr; gap:2px; margin-top:80px; }
+  .nav-article { padding:32px; background:#fff; text-decoration:none; transition:background 0.3s; }
+  .nav-article:hover { background:var(--dark); }
+  .nav-article:hover .nav-article-title { color:#fff; }
+  .nav-article:hover .nav-article-dir { color:var(--gold); }
+  .nav-article-dir { font-size:9px; letter-spacing:0.3em; text-transform:uppercase; color:var(--muted); margin-bottom:10px; display:block; }
+  .nav-article-title { font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:300; color:var(--dark); line-height:1.3; transition:color 0.3s; }
+
+  footer { background:var(--dark); padding:56px 80px; display:flex; justify-content:space-between; align-items:center; }
+  .footer-logo { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; letter-spacing:0.3em; text-transform:uppercase; color:#fff; }
+  .footer-logo span { color:var(--gold); }
+  .footer-text { font-size:11px; color:rgba(247,242,238,0.3); letter-spacing:0.1em; margin-top:6px; }
+  .footer-nav { display:flex; gap:24px; }
+  .footer-nav a { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(247,242,238,0.4); text-decoration:none; transition:color 0.3s; }
+  .footer-nav a:hover { color:#fff; }
+
+  .fade-in { opacity:0; transform:translateY(20px); transition:opacity 0.7s ease, transform 0.7s ease; }
+  .fade-in.visible { opacity:1; transform:none; }
+
+  @media (max-width:768px) {
+    header { padding:16px 24px; } nav { display:none; }
+    .article-hero-content { padding:40px 24px; }
+    .article-body { padding:48px 24px 80px; }
+    .expo-grid { grid-template-columns:1fr; }
+    .cta-palettes { flex-direction:column; align-items:flex-start; }
+    .articles-nav { grid-template-columns:1fr; }
+    footer { flex-direction:column; gap:24px; text-align:center; padding:40px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">AUR<span>E</span>A</a>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="couleurs.html">Couleurs</a>
+    <a href="inspirations.html">Inspirations</a>
+    <a href="selection.html">Sélection</a>
+  </nav>
+</header>
+
+<div class="article-hero">
+  <div class="article-hero-veil"></div>
+  <div class="article-hero-content">
+    <a href="inspirations.html" class="article-back">← Retour aux inspirations</a>
+    <div class="article-tag">Guide pratique</div>
+    <h1 class="article-hero-title">Quelle palette selon<br><em>l'exposition de votre pièce</em></h1>
+    <div class="article-hero-meta">
+      <span><b>→</b> Décembre 2025</span>
+      <span><b>→</b> 5 min de lecture</span>
+      <span><b>→</b> Guide pratique</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <p class="article-intro fade-in">Nord, sud, est, ouest — l'exposition d'une pièce <em>change tout à la perception des couleurs.</em> Une même teinte peut sembler lumineuse dans un salon plein sud et oppressante dans une chambre orientée nord. Le guide complet pour ne plus se tromper.</p>
+
+  <div class="fade-in">
+    <p class="article-p">Beaucoup de personnes choisissent une couleur sur un nuancier, l'appliquent, et sont déçues du résultat. La couleur semble plus sombre, plus froide, ou moins belle que ce qu'elles imaginaient. <strong>La cause, presque toujours : elles n'ont pas pris en compte l'exposition de leur pièce.</strong></p>
+    <p class="article-p">La lumière naturelle transforme les couleurs. Une pièce au nord reçoit une lumière froide, bleutée, qui accentue les tons froids et assombrit les neutres. Une pièce au sud baigne dans une lumière chaude et dorée qui réchauffe tout — y compris les couleurs que l'on croyait neutres.</p>
+  </div>
+
+  <div class="expo-grid fade-in">
+    <div class="expo-card">
+      <div class="expo-direction">N</div>
+      <div class="expo-label">Exposition Nord</div>
+      <h3 class="expo-title">Lumière froide & constante</h3>
+      <p class="expo-desc">La lumière du nord est froide, bleutée, sans soleil direct. Elle accentue les tons froids et peut rendre les neutres ternes. Mais elle est constante — pas d'éblouissement, pas de variations brutales.</p>
+      <div class="expo-palettes">
+        <span>Terracotta Solaire (réchauffe)</span>
+        <span>Jaune Paille & Lin (luminosité)</span>
+        <span>Rose Poudré & Nude (douceur)</span>
+      </div>
+    </div>
+    <div class="expo-card">
+      <div class="expo-direction">S</div>
+      <div class="expo-label">Exposition Sud</div>
+      <h3 class="expo-title">Lumière chaude & abondante</h3>
+      <p class="expo-desc">Le plein sud offre la lumière la plus généreuse. Elle réchauffe toutes les couleurs, peut blanchir les tons trop pâles en été et créer de forts contrastes. Une chance — à condition de ne pas en abuser.</p>
+      <div class="expo-palettes">
+        <span>Bleu Âge de Glace (équilibre)</span>
+        <span>Vert Sauge & Olive (fraîcheur)</span>
+        <span>Grège & Cachemire (neutralité)</span>
+      </div>
+    </div>
+    <div class="expo-card">
+      <div class="expo-direction">E</div>
+      <div class="expo-label">Exposition Est</div>
+      <h3 class="expo-title">Lumière matinale & dorée</h3>
+      <p class="expo-desc">Le soleil levant offre une lumière chaude et rasante le matin, qui disparaît progressivement dans la journée. Les pièces à l'est sont lumineuses le matin et plus neutres l'après-midi.</p>
+      <div class="expo-palettes">
+        <span>Bordeaux & Cognac (profondeur)</span>
+        <span>Terracotta Solaire (harmonie)</span>
+        <span>Rose Poudré & Nude (douceur)</span>
+      </div>
+    </div>
+    <div class="expo-card">
+      <div class="expo-direction">O</div>
+      <div class="expo-label">Exposition Ouest</div>
+      <h3 class="expo-title">Lumière de fin de journée</h3>
+      <p class="expo-desc">L'ouest offre la lumière la plus cinématographique — chaude, orange, rasante en fin de journée. Les pièces à vivre (salon, salle à manger) s'y épanouissent naturellement.</p>
+      <div class="expo-palettes">
+        <span>Grège & Cachemire (équilibre)</span>
+        <span>Jaune Paille & Lin (lumineux)</span>
+        <span>Bleu Âge de Glace (contraste)</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="pull-quote fade-in">
+    <p>« Avant de choisir une couleur, passez une journée entière à observer la lumière de votre pièce. »</p>
+    <cite>Principe AUREA</cite>
+  </div>
+
+  <div class="fade-in">
+    <h2 class="section-h">Le test <em>indispensable</em></h2>
+    <p class="article-p">Avant de peindre, testez toujours votre couleur sur un grand pan de mur — au moins 50×50 cm — et observez-la à différents moments de la journée : le matin, à midi, en fin d'après-midi et sous éclairage artificiel le soir. <strong>La même couleur peut paraître complètement différente selon la lumière.</strong></p>
+    <p class="article-p">Un dernier conseil : si vous hésitez entre deux tons, choisissez presque toujours le plus clair. Les couleurs paraissent systématiquement plus sombres une fois appliquées sur un mur entier que sur un nuancier de quelques centimètres.</p>
+  </div>
+
+  <div class="cta-palettes fade-in">
+    <div class="cta-palettes-text">
+      <h3>Trouvez votre palette idéale</h3>
+      <p>Toutes nos palettes sont accompagnées d'indications sur les expositions recommandées et les associations de matières.</p>
+    </div>
+    <a href="couleurs.html" class="cta-palettes-link">Explorer les palettes →</a>
+  </div>
+
+  <div class="articles-nav fade-in">
+    <a href="article-salon-inacheve.html" class="nav-article">
+      <span class="nav-article-dir">← Article précédent</span>
+      <div class="nav-article-title">Pourquoi votre salon semble toujours inachevé</div>
+    </a>
+    <a href="inspirations.html" class="nav-article" style="text-align:right;">
+      <span class="nav-article-dir">← Tous les articles</span>
+      <div class="nav-article-title">Retour aux Inspirations</div>
+    </a>
+  </div>
+
+</div>
+
+<footer>
+  <div>
+    <div class="footer-logo">AUR<span>E</span>A</div>
+    <div class="footer-text">Décoration intérieure · Couleur · Tendances</div>
+  </div>
+  <div class="footer-nav">
+    <a href="#">Pinterest</a>
+    <a href="#">Contact</a>
+    <a href="#">Mentions légales</a>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

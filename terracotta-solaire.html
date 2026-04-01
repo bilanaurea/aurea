@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-30LC353DER"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-30LC353DER");
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terracotta Solaire — AUREA</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root { --terra:#C8845A; --deep:#5A2A10; --sand:#E8C89A; --ochre:#A06830; --dark:#2A1408; --text:#4A3020; --gold:#B8976A; }
+  html { scroll-behavior: smooth; }
+  body { font-family:'Jost',sans-serif; font-weight:300; background:#F7F2EE; color:var(--text); overflow-x:hidden; }
+
+  /* HEADER */
+  header { position:fixed; top:0; left:0; right:0; z-index:100; padding:20px 48px; display:flex; justify-content:space-between; align-items:center; background:rgba(247,242,238,0.92); backdrop-filter:blur(12px); border-bottom:1px solid rgba(200,160,120,0.3); }
+  .logo { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:300; letter-spacing:0.4em; text-transform:uppercase; color:var(--dark); text-decoration:none; }
+  .logo span { color:var(--gold); }
+  nav { display:flex; gap:32px; }
+  nav a { font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--ochre); text-decoration:none; transition:color 0.3s; }
+  nav a:hover { color:var(--deep); }
+  .nav-back { font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:var(--ochre); text-decoration:none; transition:color 0.3s; }
+  .nav-back:hover { color:var(--dark); }
+
+  /* NEWSLETTER */
+  .hero-nl { position:relative; z-index:20; background:rgba(184,151,106,0.12); border-top:1px solid rgba(184,151,106,0.30); backdrop-filter:blur(10px); }
+  .hero-nl-inner { display:flex; align-items:center; gap:20px; padding:13px 52px; }
+  .hero-nl-tag { font-size:9px; letter-spacing:0.4em; text-transform:uppercase; color:var(--gold); border:1px solid rgba(184,151,106,0.35); padding:5px 12px; white-space:nowrap; flex-shrink:0; }
+  .hero-nl-text { font-size:12px; color:rgba(255,255,255,0.45); flex:1; min-width:0; }
+  .hero-nl-form { display:flex; align-items:center; border:1px solid rgba(184,151,106,0.28); flex-shrink:0; transition:border-color 0.3s; }
+  .hero-nl-form:focus-within { border-color:var(--gold); }
+  .hero-nl-input { background:transparent; border:none; outline:none; font-family:'Jost',sans-serif; font-weight:300; font-size:12px; color:#fff; padding:10px 16px; width:210px; }
+  .hero-nl-input::placeholder { color:rgba(255,255,255,0.22); }
+  .hero-nl-btn { background:var(--gold); border:none; cursor:pointer; font-family:'Jost',sans-serif; font-weight:300; font-size:10px; letter-spacing:0.25em; text-transform:uppercase; color:#fff; padding:10px 18px; white-space:nowrap; transition:background 0.3s; }
+  .hero-nl-btn:hover { background:#a47f58; }
+  .hero-nl-close { background:transparent; border:none; cursor:pointer; color:rgba(255,255,255,0.22); font-size:12px; padding:4px 0 4px 8px; transition:color 0.3s; flex-shrink:0; }
+  .hero-nl-close:hover { color:rgba(255,255,255,0.55); }
+
+  /* HERO */
+  .hero { height:100vh; position:relative; display:flex; flex-direction:column; justify-content:flex-end; overflow:hidden; }
+  .hero-bg { position:absolute; inset:0; background:url('Salon terracota.png') center/cover no-repeat; }
+  .hero-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(42,20,8,0.82) 0%, rgba(42,20,8,0.18) 55%, rgba(42,20,8,0.04) 100%); }
+  .hero-content { position:relative; z-index:2; padding:0 80px 72px; }
+  .hero-tag { display:inline-block; font-size:10px; letter-spacing:0.3em; text-transform:uppercase; color:var(--sand); margin-bottom:20px; border-left:2px solid var(--gold); padding-left:16px; }
+  .hero-title { font-family:'Cormorant Garamond',serif; font-size:clamp(48px,7vw,96px); font-weight:300; line-height:1.0; color:#fff; max-width:700px; }
+  .hero-title em { font-style:italic; color:var(--sand); }
+  .hero-sub { margin-top:24px; font-size:13px; letter-spacing:0.06em; color:rgba(255,255,255,0.5); max-width:440px; line-height:1.85; }
+  .hero-scroll { position:absolute; right:48px; bottom:96px; z-index:10; display:flex; flex-direction:column; align-items:center; gap:12px; color:rgba(255,255,255,0.4); font-size:10px; letter-spacing:0.2em; text-transform:uppercase; }
+  .hero-scroll::after { content:''; display:block; width:1px; height:60px; background:linear-gradient(to bottom,rgba(255,255,255,0.5),transparent); animation:scrollLine 2s ease-in-out infinite; }
+  @keyframes scrollLine { 0%,100%{opacity:0.4} 50%{opacity:1} }
+
+  /* SECTIONS */
+  section { padding:100px 80px; }
+  .section-label { font-size:10px; letter-spacing:0.35em; text-transform:uppercase; color:var(--gold); margin-bottom:16px; }
+  .section-title { font-family:'Cormorant Garamond',serif; font-size:clamp(32px,4vw,52px); font-weight:300; color:var(--dark); line-height:1.2; margin-bottom:40px; }
+  .section-title em { font-style:italic; color:var(--ochre); }
+
+  /* INTRO */
+  .intro { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; background:#F7F2EE; }
+  .intro-text p { font-size:15px; line-height:2.0; color:var(--text); margin-bottom:20px; }
+  .intro-text p:first-of-type { font-family:'Cormorant Garamond',serif; font-size:21px; font-weight:300; font-style:italic; color:var(--deep); line-height:1.7; }
+  .intro-visual { height:520px; background-size:cover; background-position:center; background-repeat:no-repeat; }
+
+  /* MOODBOARD */
+  .moodboard { background:var(--dark); }
+  .moodboard .section-title { color:#fff; }
+  .moodboard .section-label { color:var(--sand); }
+  .moodboard-intro { font-size:14px; color:rgba(232,200,154,0.6); max-width:600px; margin-bottom:56px; line-height:1.9; }
+  .moodboard-grid { display:grid; grid-template-columns:repeat(12,1fr); grid-template-rows:300px 300px; gap:10px; }
+  .mood-item { overflow:hidden; position:relative; background-size:cover; background-position:center; background-repeat:no-repeat; transition:transform 0.7s ease; }
+  .mood-item:nth-child(1) { grid-column:1/6; grid-row:1/2; }
+  .mood-item:nth-child(2) { grid-column:6/9; grid-row:1/2; }
+  .mood-item:nth-child(3) { grid-column:9/13; grid-row:1/3; }
+  .mood-item:nth-child(4) { grid-column:1/4; grid-row:2/3; }
+  .mood-item:nth-child(5) { grid-column:4/9; grid-row:2/3; }
+  .mood-item:hover { transform:scale(1.02); }
+  .mood-label { position:absolute; bottom:14px; left:14px; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.9); background:rgba(42,20,8,0.6); backdrop-filter:blur(4px); padding:6px 12px; }
+
+  /* PALETTE */
+  .palette-section { background:#FBF5EE; }
+  .palette-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:0; height:200px; overflow:hidden; margin-bottom:32px; }
+  .palette-swatch { position:relative; cursor:pointer; transition:transform 0.3s; }
+  .palette-swatch:hover { transform:scaleY(1.05); z-index:2; }
+  .sw1{background:#3A1408} .sw2{background:#7A3A18} .sw3{background:#C4704A} .sw4{background:#E8A870} .sw5{background:#F5DFC0}
+  .swatch-info { position:absolute; bottom:0; left:0; right:0; padding:12px; text-align:center; background:rgba(0,0,0,0.22); }
+  .swatch-name { font-size:10px; letter-spacing:0.15em; color:rgba(255,255,255,0.9); text-transform:uppercase; display:block; }
+  .swatch-hex { font-size:9px; color:rgba(255,255,255,0.55); display:block; margin-top:2px; }
+
+  /* ROOMS */
+  .rooms { background:#F7F2EE; }
+  .rooms-grid { display:grid; grid-template-columns:1fr 1fr; gap:56px; margin-top:56px; }
+  .room-photo { height:400px; margin-bottom:24px; background-size:cover; background-position:center; background-repeat:no-repeat; transition:transform 0.7s ease; }
+  .room-card:hover .room-photo { transform:scale(1.02); }
+  .room-title { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; color:var(--dark); margin-bottom:12px; }
+  .room-desc { font-size:14px; line-height:1.9; color:var(--text); }
+  .room-full { grid-column:1/-1; display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
+  .room-full .room-photo { height:500px; margin-bottom:0; }
+
+  /* PRODUCTS */
+  .products { background:var(--dark); }
+  .products .section-title { color:#fff; }
+  .products .section-label { color:var(--sand); }
+  .products-intro { font-size:14px; color:rgba(232,200,154,0.6); max-width:500px; margin-bottom:56px; line-height:1.9; }
+  .products-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; }
+  .product-card { overflow:hidden; cursor:pointer; transition:transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94); }
+  .product-card:hover { transform:scale(0.985); }
+  .product-img { height:340px; background-size:cover; background-position:center; background-repeat:no-repeat; transition:transform 0.7s ease; }
+  .product-card:hover .product-img { transform:scale(1.03); }
+  .product-info { padding:20px 0 8px; border-top:1px solid rgba(232,200,154,0.12); }
+  .product-cat { font-size:9px; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:6px; }
+  .product-name { font-family:'Cormorant Garamond',serif; font-size:19px; color:#fff; margin-bottom:6px; }
+  .product-desc { font-size:12px; color:rgba(232,200,154,0.48); line-height:1.7; margin-bottom:12px; }
+  .product-link { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--sand); text-decoration:none; border-bottom:1px solid rgba(232,200,154,0.25); padding-bottom:2px; transition:color 0.3s, border-color 0.3s; }
+  .product-link:hover { color:var(--gold); border-color:var(--gold); }
+
+  /* TIPS */
+  .tips { background:#FBF0E4; }
+  .tips .section-title { color:var(--dark); }
+  .tips-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:40px; margin-top:48px; }
+  .tip-card { padding:40px 32px; background:rgba(255,255,255,0.6); }
+  .tip-number { font-family:'Cormorant Garamond',serif; font-size:64px; font-weight:300; color:rgba(160,104,48,0.14); line-height:1; margin-bottom:16px; }
+  .tip-title { font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:var(--deep); margin-bottom:12px; }
+  .tip-text { font-size:14px; line-height:1.9; color:var(--text); }
+
+  /* FOOTER */
+  footer { background:var(--dark); padding:56px 80px; display:flex; justify-content:space-between; align-items:center; }
+  .footer-logo { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; letter-spacing:0.3em; text-transform:uppercase; color:#fff; }
+  .footer-logo span { color:var(--gold); }
+  .footer-text { font-size:11px; color:rgba(232,200,154,0.35); letter-spacing:0.1em; margin-top:6px; }
+  .footer-nav { display:flex; gap:24px; }
+  .footer-nav a { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(232,200,154,0.45); text-decoration:none; transition:color 0.3s; }
+  .footer-nav a:hover { color:#fff; }
+
+  /* FADE */
+  .fade-in { opacity:0; transform:translateY(28px); transition:opacity 0.85s ease, transform 0.85s ease; }
+  .fade-in.visible { opacity:1; transform:none; }
+
+  @media (max-width:768px) {
+    header { padding:16px 24px; } nav { display:none; } section { padding:64px 24px; }
+    .hero-content { padding:0 24px 64px; } .hero-scroll { display:none; }
+    .hero-nl-inner { flex-wrap:wrap; padding:12px 24px; gap:12px; }
+    .hero-nl-text { display:none; } .hero-nl-input { width:150px; }
+    .intro { grid-template-columns:1fr; } .intro-visual { height:300px; }
+    .moodboard-grid { grid-template-columns:1fr 1fr; grid-template-rows:auto; }
+    .mood-item { grid-column:auto !important; grid-row:auto !important; height:200px; }
+    .rooms-grid { grid-template-columns:1fr; }
+    .room-full { grid-template-columns:1fr; } .room-full .room-photo { height:280px; }
+    .products-grid { grid-template-columns:1fr; } .tips-grid { grid-template-columns:1fr; }
+    footer { flex-direction:column; gap:24px; text-align:center; padding:40px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">AUR<span>E</span>A</a>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="couleurs.html">Couleurs</a>
+    <a href="#">Inspirations</a>
+    <a href="#">Sélection</a>
+  </nav>
+  <a href="couleurs.html" class="nav-back">← Toutes les couleurs</a>
+</header>
+
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Tendance couleur · Été · Palette chaude</div>
+    <h1 class="hero-title">Terracotta<br><em>Solaire</em></h1>
+    <p class="hero-sub">Du ocre brûlé au sable doux — 5 nuances, leurs associations et leur application pièce par pièce.</p>
+  </div>
+  <div class="hero-nl" id="hero-nl">
+    <div class="hero-nl-inner">
+      <div class="hero-nl-tag">Newsletter</div>
+      <p class="hero-nl-text">Nouvelles palettes, tendances et sélections produits — chaque mois dans votre boîte mail.</p>
+      <div class="hero-nl-form">
+        <input class="hero-nl-input" type="email" placeholder="Votre adresse e-mail" />
+        <button class="hero-nl-btn">S'inscrire</button>
+      </div>
+      <button class="hero-nl-close" onclick="document.getElementById('hero-nl').style.display='none'" aria-label="Fermer">✕</button>
+    </div>
+  </div>
+  <div class="hero-scroll">Découvrir</div>
+</section>
+
+
+<!-- INTRO -->
+<section class="intro fade-in">
+  <div class="intro-text">
+    <div class="section-label">L'Essentiel</div>
+    <h2 class="section-title">Une couleur entre <em>terre et lumière</em></h2>
+    <p>Le terracotta couvre un spectre allant du brun profond à l'ocre lumineux. Proche de la matière brute, il apporte chaleur et densité à tous les espaces.</p>
+    <p>Associé au bois naturel, au lin brut et au laiton, il crée des intérieurs méditerranéens et contemporains à la fois. La palette fonctionne aussi bien en mur peint qu'en accumulation de textiles.</p>
+    <p>Les matières qui l'accompagnent le mieux : céramique artisanale, raphia, coton texturé, béton ciré.</p>
+  </div>
+  <div class="intro-visual" style="background-image:url('terracotta_lumiere_doree.png')"></div>
+</section>
+
+
+<!-- MOODBOARD -->
+<section class="moodboard fade-in">
+  <div class="section-label">Moodboard</div>
+  <h2 class="section-title">L'univers <em>Terracotta Solaire</em></h2>
+  <p class="moodboard-intro">Cinq visuels, une cohérence. Du salon baigné de lumière aux détails artisanaux, les déclinaisons de la palette.</p>
+  <div class="moodboard-grid">
+    <div class="mood-item" style="background-image:url('terracotta_ambiance_deco.png')"><span class="mood-label">Salon</span></div>
+    <div class="mood-item" style="background-image:url('architecture.png')"><span class="mood-label">Architecture</span></div>
+    <div class="mood-item" style="background-image:url('ceramique artisanale.png')"><span class="mood-label">Artisanat</span></div>
+    <div class="mood-item" style="background-image:url('chambre_terracotta.png')"><span class="mood-label">Chambre</span></div>
+    <div class="mood-item" style="background-image:url('table dressee.png')"><span class="mood-label">Table</span></div>
+  </div>
+</section>
+
+
+<!-- PALETTE -->
+<section class="palette-section fade-in">
+  <div class="section-label">La Palette</div>
+  <h2 class="section-title">Cinq nuances, <em>une harmonie</em></h2>
+  <div class="palette-grid">
+    <div class="palette-swatch sw1"><div class="swatch-info"><span class="swatch-name">Terre Brûlée</span><span class="swatch-hex">#3A1408</span></div></div>
+    <div class="palette-swatch sw2"><div class="swatch-info"><span class="swatch-name">Ocre Profond</span><span class="swatch-hex">#7A3A18</span></div></div>
+    <div class="palette-swatch sw3"><div class="swatch-info"><span class="swatch-name">Terracotta</span><span class="swatch-hex">#C4704A</span></div></div>
+    <div class="palette-swatch sw4"><div class="swatch-info"><span class="swatch-name">Ocre Doré</span><span class="swatch-hex">#E8A870</span></div></div>
+    <div class="palette-swatch sw5"><div class="swatch-info"><span class="swatch-name">Sable Chaud</span><span class="swatch-hex">#F5DFC0</span></div></div>
+  </div>
+  <p style="font-size:13px;color:var(--ochre);letter-spacing:0.04em;line-height:1.95;max-width:600px;">Ces cinq tons coexistent naturellement. Les teintes profondes ancrent et structurent, les claires ouvrent et adoucissent. Le terracotta (#C4704A) est la nuance pivot de toute la palette.</p>
+</section>
+
+
+<!-- ROOMS -->
+<section class="rooms fade-in">
+  <div class="section-label">Pièce par pièce</div>
+  <h2 class="section-title">La palette <em>dans chaque espace</em></h2>
+  <div class="rooms-grid">
+    <div class="room-card">
+      <div class="room-photo" style="background-image:url('Salon terracota.png')"></div>
+      <h3 class="room-title">Le Salon</h3>
+      <p class="room-desc">Canapé terracotta, table basse en bois massif, tapis berbère. Les tons chauds se renforcent mutuellement. Une plante verte en pot céramique suffit à équilibrer l'ensemble.</p>
+    </div>
+    <div class="room-card">
+      <div class="room-photo" style="background-image:url('chambre_terracotta.png')"></div>
+      <h3 class="room-title">La Chambre</h3>
+      <p class="room-desc">Mur en enduit tadelakt ocre, linge de lit lin naturel, coussins terracotta velours. La lumière dorée de fin de journée amplifie chaque nuance. Un résultat chaud et cocooning.</p>
+    </div>
+    <div class="room-full">
+      <div class="room-photo" style="background-image:url('cuisine mediterranenne.png')"></div>
+      <div>
+        <h3 class="room-title">La Cuisine</h3>
+        <p class="room-desc" style="margin-bottom:18px;">C'est la pièce naturelle du terracotta. Carrelage tomettes, céramique artisanale en étagères ouvertes, robinetterie laiton brossé — la cuisine devient le cœur généreux de la maison.</p>
+        <p class="room-desc">Les façades en bois naturel, le plan de travail en pierre claire et les suspensions en laiton complètent la palette sans surcharger.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- PRODUCTS -->
+<section class="products fade-in">
+  <div class="section-label">Sélection</div>
+  <h2 class="section-title">Les pièces <em>qui font la différence</em></h2>
+  <p class="products-intro">Une sélection resserrée d'objets et de textiles pour adopter la palette Terracotta Solaire — de la touche discrète à l'engagement total.</p>
+  <div class="products-grid">
+    <div class="product-card">
+      <div class="product-img" style="background-image:url('composition_herbes_seches.png')"></div>
+      <div class="product-info">
+        <div class="product-cat">Décoration · Végétal</div>
+        <div class="product-name">Composition Herbes Sèches</div>
+        <div class="product-desc">Pampa blonde, herbes de la pampa et eucalyptus séché dans un vase terracotta mat. La touche végétale naturelle qui ancre la palette.</div>
+        <a href="#" class="product-link">[Lien affilié à ajouter]</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img" style="background-image:url('coussin_brode_kilim.png')"></div>
+      <div class="product-info">
+        <div class="product-cat">Textile · Salon</div>
+        <div class="product-name">Coussin Brodé Kilim</div>
+        <div class="product-desc">Broderie artisanale, tons ocre et terracotta sur fond ivoire. L'âme d'un tapis kilim en format coussin.</div>
+        <a href="#" class="product-link">[Lien affilié à ajouter]</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img" style="background-image:url('vase_ceramique_artisanal.png')"></div>
+      <div class="product-info">
+        <div class="product-cat">Décoration · Objets</div>
+        <div class="product-name">Vase Céramique Artisanal</div>
+        <div class="product-desc">Terre cuite non émaillée, forme organique. Posé seul ou en trio de hauteurs différentes sur un meuble bois clair.</div>
+        <a href="#" class="product-link">[Lien affilié à ajouter]</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img" style="background-image:url('housse_lin_lave_sable.png')"></div>
+      <div class="product-info">
+        <div class="product-cat">Textile · Chambre</div>
+        <div class="product-name">Housse Lin Lavé Sable</div>
+        <div class="product-desc">100% lin lavé, ton sable naturel. La base idéale pour une chambre terracotta — douce, texturée, intemporelle.</div>
+        <a href="#" class="product-link">[Lien affilié à ajouter]</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img" style="background-image:url('lampe_ceramique_ocre.png')"></div>
+      <div class="product-info">
+        <div class="product-cat">Luminaire · Salon</div>
+        <div class="product-name">Lampe Céramique Ocre</div>
+        <div class="product-desc">Céramique texturée terracotta, abat-jour lin naturel. Une lumière ambrée qui renforce toute la palette.</div>
+        <a href="#" class="product-link">[Lien affilié à ajouter]</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img" style="background-image:url('bougie_ambre_bois.png')"></div>
+      <div class="product-info">
+        <div class="product-cat">Décoration · Ambiance</div>
+        <div class="product-name">Bougie Ambre & Bois</div>
+        <div class="product-desc">Cire naturelle, contenant verre ambré, parfum bois de santal & résine. L'olfactif chaud de la palette terracotta.</div>
+        <a href="#" class="product-link">[Lien affilié à ajouter]</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- TIPS -->
+<section class="tips fade-in">
+  <div class="section-label">Les Règles d'Or</div>
+  <h2 class="section-title">Adopter le Terracotta Solaire <em>sans se tromper</em></h2>
+  <div class="tips-grid">
+    <div class="tip-card">
+      <div class="tip-number">01</div>
+      <div class="tip-title">Ancrer avec le naturel</div>
+      <p class="tip-text">Bois massif, lin brut, rotin, raphia. Le terracotta sans matières naturelles peut sembler artificiel. L'organique lui donne sa légitimité et sa chaleur.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-number">02</div>
+      <div class="tip-title">Doser les intensités</div>
+      <p class="tip-text">Un mur terracotta demande des textiles plus clairs — sable, ivoire, lin. Inversement, un canapé terracotta peut coexister avec un mur enduit ocre pâle. L'équilibre est dans les valeurs.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-number">03</div>
+      <div class="tip-title">Miser sur l'artisanal</div>
+      <p class="tip-text">Céramique faite main, tissage, vannerie. Les pièces artisanales amplifient la palette terracotta plus que tout autre style d'objet. Chaque imperfection renforce la cohérence.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">AUR<span>E</span>A</div>
+    <div class="footer-text">Décoration intérieure · Couleur · Tendances</div>
+  </div>
+  <div class="footer-nav">
+    <a href="#">Pinterest</a>
+    <a href="#">Contact</a>
+    <a href="#">Mentions légales</a>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

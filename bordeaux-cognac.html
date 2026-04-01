@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-30LC353DER"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-30LC353DER");
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bordeaux & Cognac — AUREA</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  :root { --bordeaux:#7A1A2A; --deep:#3A0A10; --cognac:#C8784A; --caramel:#D4A870; --cream:#F5EAE0; --dark:#2A1018; --text:#3A1820; --gold:#B8976A; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Jost',sans-serif; font-weight:300; background:#FAF2EE; color:var(--text); overflow-x:hidden; }
+
+  header { position:fixed; top:0; left:0; right:0; z-index:100; padding:20px 48px; display:flex; justify-content:space-between; align-items:center; background:rgba(250,242,238,0.92); backdrop-filter:blur(12px); border-bottom:1px solid rgba(122,26,42,0.2); }
+  .logo { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:300; letter-spacing:0.4em; text-transform:uppercase; color:var(--dark); text-decoration:none; }
+  .logo span { color:var(--gold); }
+  nav { display:flex; gap:32px; }
+  nav a { font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--cognac); text-decoration:none; transition:color 0.3s; }
+  nav a:hover { color:var(--deep); }
+  .nav-back { font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:var(--cognac); text-decoration:none; transition:color 0.3s; }
+  .nav-back:hover { color:var(--dark); }
+
+  .hero { height:100vh; position:relative; display:flex; flex-direction:column; justify-content:flex-end; overflow:hidden; }
+  .hero-bg { position:absolute; inset:0; background:url('bordeaux_salon_hero.png') center/cover no-repeat; background-color:#3A0A10; }
+  .hero-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(42,16,24,0.88) 0%, rgba(42,16,24,0.2) 55%, rgba(42,16,24,0.02) 100%); }
+  .hero-content { position:relative; z-index:2; padding:0 80px 72px; }
+  .hero-tag { display:inline-block; font-size:10px; letter-spacing:0.3em; text-transform:uppercase; color:var(--caramel); margin-bottom:20px; border-left:2px solid var(--gold); padding-left:16px; }
+  .hero-title { font-family:'Cormorant Garamond',serif; font-size:clamp(48px,7vw,96px); font-weight:300; line-height:1.0; color:#fff; max-width:700px; }
+  .hero-title em { font-style:italic; color:var(--caramel); }
+  .hero-sub { margin-top:24px; font-size:13px; color:rgba(255,255,255,0.5); max-width:440px; line-height:1.85; }
+  .hero-scroll { position:absolute; right:48px; bottom:96px; z-index:10; display:flex; flex-direction:column; align-items:center; gap:12px; color:rgba(255,255,255,0.4); font-size:10px; letter-spacing:0.2em; text-transform:uppercase; }
+  .hero-scroll::after { content:''; display:block; width:1px; height:60px; background:linear-gradient(to bottom,rgba(255,255,255,0.5),transparent); animation:scrollLine 2s ease-in-out infinite; }
+  @keyframes scrollLine { 0%,100%{opacity:0.4} 50%{opacity:1} }
+
+  .hero-nl { position:relative; z-index:20; background:rgba(122,26,42,0.15); border-top:1px solid rgba(200,120,74,0.3); backdrop-filter:blur(10px); }
+  .hero-nl-inner { display:flex; align-items:center; gap:20px; padding:13px 52px; }
+  .hero-nl-tag { font-size:9px; letter-spacing:0.4em; text-transform:uppercase; color:var(--gold); border:1px solid rgba(184,151,106,0.35); padding:5px 12px; white-space:nowrap; flex-shrink:0; }
+  .hero-nl-text { font-size:12px; color:rgba(255,255,255,0.45); flex:1; }
+  .hero-nl-form { display:flex; align-items:center; border:1px solid rgba(184,151,106,0.28); flex-shrink:0; }
+  .hero-nl-input { background:transparent; border:none; outline:none; font-family:'Jost',sans-serif; font-size:12px; color:#fff; padding:10px 16px; width:210px; }
+  .hero-nl-input::placeholder { color:rgba(255,255,255,0.22); }
+  .hero-nl-btn { background:var(--gold); border:none; cursor:pointer; font-family:'Jost',sans-serif; font-size:10px; letter-spacing:0.25em; text-transform:uppercase; color:#fff; padding:10px 18px; white-space:nowrap; transition:background 0.3s; }
+  .hero-nl-btn:hover { background:#a47f58; }
+  .hero-nl-close { background:transparent; border:none; cursor:pointer; color:rgba(255,255,255,0.22); font-size:12px; padding:4px 0 4px 8px; }
+
+  section { padding:100px 80px; }
+  .section-label { font-size:10px; letter-spacing:0.35em; text-transform:uppercase; color:var(--gold); margin-bottom:16px; }
+  .section-title { font-family:'Cormorant Garamond',serif; font-size:clamp(32px,4vw,52px); font-weight:300; color:var(--dark); line-height:1.2; margin-bottom:40px; }
+  .section-title em { font-style:italic; color:var(--bordeaux); }
+
+  .intro { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; background:#FAF2EE; }
+  .intro-text p { font-size:15px; line-height:2.0; color:var(--text); margin-bottom:20px; }
+  .intro-text p:first-of-type { font-family:'Cormorant Garamond',serif; font-size:21px; font-style:italic; color:var(--deep); line-height:1.7; }
+  .intro-visual { height:520px; background:url('bordeaux_intro.png') center/cover no-repeat; background-color:#7A1A2A; }
+
+  .moodboard { background:var(--dark); }
+  .moodboard .section-title { color:#fff; }
+  .moodboard .section-label { color:var(--caramel); }
+  .moodboard-intro { font-size:14px; color:rgba(212,168,112,0.6); max-width:600px; margin-bottom:56px; line-height:1.9; }
+  .moodboard-grid { display:grid; grid-template-columns:repeat(12,1fr); grid-template-rows:300px 300px; gap:10px; }
+  .mood-item { overflow:hidden; position:relative; background-size:cover; background-position:center; background-repeat:no-repeat; background-color:#5A1A20; transition:transform 0.7s ease; }
+  .mood-item:nth-child(1) { grid-column:1/6; grid-row:1/2; }
+  .mood-item:nth-child(2) { grid-column:6/9; grid-row:1/2; }
+  .mood-item:nth-child(3) { grid-column:9/13; grid-row:1/3; }
+  .mood-item:nth-child(4) { grid-column:1/4; grid-row:2/3; }
+  .mood-item:nth-child(5) { grid-column:4/9; grid-row:2/3; }
+  .mood-item:hover { transform:scale(1.02); }
+  .mood-label { position:absolute; bottom:14px; left:14px; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.9); background:rgba(42,16,24,0.6); backdrop-filter:blur(4px); padding:6px 12px; }
+
+  .palette-section { background:#F5EAE0; }
+  .palette-grid { display:grid; grid-template-columns:repeat(5,1fr); height:200px; overflow:hidden; margin-bottom:32px; }
+  .palette-swatch { position:relative; cursor:pointer; transition:transform 0.3s; }
+  .palette-swatch:hover { transform:scaleY(1.05); z-index:2; }
+  .sw1{background:#3A0A10} .sw2{background:#7A1A2A} .sw3{background:#C8784A} .sw4{background:#D4A870} .sw5{background:#F5EAE0}
+  .swatch-info { position:absolute; bottom:0; left:0; right:0; padding:12px; text-align:center; background:rgba(0,0,0,0.22); }
+  .swatch-name { font-size:10px; letter-spacing:0.15em; color:rgba(255,255,255,0.9); text-transform:uppercase; display:block; }
+  .swatch-hex { font-size:9px; color:rgba(255,255,255,0.55); display:block; margin-top:2px; }
+
+  .rooms { background:#FAF2EE; }
+  .rooms-grid { display:grid; grid-template-columns:1fr 1fr; gap:56px; margin-top:56px; }
+  .room-photo { height:400px; margin-bottom:24px; background-size:cover; background-position:center; background-repeat:no-repeat; background-color:#7A1A2A; transition:transform 0.7s ease; }
+  .room-card:hover .room-photo { transform:scale(1.02); }
+  .room-title { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; color:var(--dark); margin-bottom:12px; }
+  .room-desc { font-size:14px; line-height:1.9; color:var(--text); }
+  .room-full { grid-column:1/-1; display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
+  .room-full .room-photo { height:500px; margin-bottom:0; }
+
+  .products { background:var(--dark); }
+  .products .section-title { color:#fff; }
+  .products .section-label { color:var(--caramel); }
+  .products-intro { font-size:14px; color:rgba(212,168,112,0.6); max-width:500px; margin-bottom:56px; line-height:1.9; }
+  .products-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; }
+  .product-card { overflow:hidden; cursor:pointer; transition:transform 0.4s; }
+  .product-card:hover { transform:scale(0.985); }
+  .product-img { height:340px; background-size:cover; background-position:center; background-repeat:no-repeat; background-color:#5A1A20; transition:transform 0.7s ease; }
+  .product-card:hover .product-img { transform:scale(1.03); }
+  .product-info { padding:20px 0 8px; border-top:1px solid rgba(212,168,112,0.12); }
+  .product-cat { font-size:9px; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:6px; }
+  .product-name { font-family:'Cormorant Garamond',serif; font-size:19px; color:#fff; margin-bottom:6px; }
+  .product-desc { font-size:12px; color:rgba(212,168,112,0.48); line-height:1.7; margin-bottom:12px; }
+  .product-link { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--caramel); text-decoration:none; border-bottom:1px solid rgba(212,168,112,0.25); padding-bottom:2px; }
+  .product-link:hover { color:var(--gold); }
+
+  .tips { background:#EDE0D8; }
+  .tips-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:40px; margin-top:48px; }
+  .tip-card { padding:40px 32px; background:rgba(255,255,255,0.5); }
+  .tip-number { font-family:'Cormorant Garamond',serif; font-size:64px; font-weight:300; color:rgba(122,26,42,0.15); line-height:1; margin-bottom:16px; }
+  .tip-title { font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:var(--deep); margin-bottom:12px; }
+  .tip-text { font-size:14px; line-height:1.9; color:var(--text); }
+
+  footer { background:var(--dark); padding:56px 80px; display:flex; justify-content:space-between; align-items:center; }
+  .footer-logo { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; letter-spacing:0.3em; text-transform:uppercase; color:#fff; }
+  .footer-logo span { color:var(--gold); }
+  .footer-text { font-size:11px; color:rgba(212,168,112,0.35); letter-spacing:0.1em; margin-top:6px; }
+  .footer-nav { display:flex; gap:24px; }
+  .footer-nav a { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(212,168,112,0.45); text-decoration:none; transition:color 0.3s; }
+  .footer-nav a:hover { color:#fff; }
+
+  .fade-in { opacity:0; transform:translateY(28px); transition:opacity 0.85s ease, transform 0.85s ease; }
+  .fade-in.visible { opacity:1; transform:none; }
+
+  @media (max-width:768px) {
+    header { padding:16px 24px; } nav { display:none; } section { padding:64px 24px; }
+    .hero-content { padding:0 24px 64px; } .hero-scroll { display:none; }
+    .hero-nl-inner { flex-wrap:wrap; padding:12px 24px; gap:12px; }
+    .hero-nl-text { display:none; } .hero-nl-input { width:150px; }
+    .intro { grid-template-columns:1fr; } .intro-visual { height:300px; }
+    .moodboard-grid { grid-template-columns:1fr 1fr; grid-template-rows:auto; }
+    .mood-item { grid-column:auto !important; grid-row:auto !important; height:200px; }
+    .rooms-grid { grid-template-columns:1fr; }
+    .room-full { grid-template-columns:1fr; } .room-full .room-photo { height:280px; }
+    .products-grid { grid-template-columns:1fr; } .tips-grid { grid-template-columns:1fr; }
+    footer { flex-direction:column; gap:24px; text-align:center; padding:40px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">AUR<span>E</span>A</a>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="couleurs.html">Couleurs</a>
+    <a href="#">Inspirations</a>
+    <a href="#">Sélection</a>
+  </nav>
+  <a href="couleurs.html" class="nav-back">← Toutes les couleurs</a>
+</header>
+
+<!-- HERO — PHOTO : bordeaux_salon_hero.png
+     Salon sombre et luxueux, canapé bordeaux velours profond, table basse marbre noir,
+     luminaires laiton, bougies allumées, ambiance cosy et dramatique, lumière tamisée -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Tendance couleur · Automne-Hiver · Palette profonde</div>
+    <h1 class="hero-title">Bordeaux<br><em>&amp; Cognac</em></h1>
+    <p class="hero-sub">Du bordeaux intense au cognac doré — la palette la plus enveloppante et la plus dramatique pour des intérieurs d'une richesse rare.</p>
+  </div>
+  <div class="hero-nl" id="hero-nl">
+    <div class="hero-nl-inner">
+      <div class="hero-nl-tag">Newsletter</div>
+      <p class="hero-nl-text">Nouvelles palettes, tendances et sélections produits — chaque mois dans votre boîte mail.</p>
+      <div class="hero-nl-form">
+        <input class="hero-nl-input" type="email" placeholder="Votre adresse e-mail" />
+        <button class="hero-nl-btn">S'inscrire</button>
+      </div>
+      <button class="hero-nl-close" onclick="document.getElementById('hero-nl').style.display='none'">✕</button>
+    </div>
+  </div>
+  <div class="hero-scroll">Découvrir</div>
+</section>
+
+<!-- INTRO — PHOTO : bordeaux_intro.png
+     Bibliothèque ou salon intimiste, murs bordeaux profond, canapé cognac cuir,
+     livres reliés, lumière bougie et lampe laiton, ambiance club anglais raffiné -->
+<section class="intro fade-in">
+  <div class="intro-text">
+    <div class="section-label">L'Essentiel</div>
+    <h2 class="section-title">La couleur du <em>luxe assumé</em></h2>
+    <p>Le bordeaux est l'une des couleurs les plus anciennes de la décoration intérieure — utilisée depuis des siècles dans les bibliothèques anglaises, les salons parisiens, les palais italiens. Sa profondeur absorbe la lumière et crée une atmosphère d'une densité incomparable.</p>
+    <p>Associé au cognac du cuir naturel, au laiton brossé et au bois de noyer, il compose des intérieurs d'une richesse rare — chaleureux, enveloppants, profondément élégants.</p>
+    <p>Les matières qui l'accompagnent le mieux : velours, cuir naturel, noyer, laiton, marbre noir.</p>
+  </div>
+  <div class="intro-visual"></div>
+</section>
+
+<!-- MOODBOARD -->
+<section class="moodboard fade-in">
+  <div class="section-label">Moodboard</div>
+  <h2 class="section-title">L'univers <em>Bordeaux &amp; Cognac</em></h2>
+  <p class="moodboard-intro">Cinq visuels pour saisir la richesse de la palette — du salon dramatique aux détails dorés qui font toute la profondeur de cet univers.</p>
+  <div class="moodboard-grid">
+    <!-- PHOTO 1 : bordeaux_mood_salon.png
+         Salon profond et luxueux, murs bordeaux, canapé velours cognac,
+         coussins or et crème, table marbre, lumière tamisée laiton -->
+    <div class="mood-item" style="background-image:url('bordeaux_mood_salon.png')"><span class="mood-label">Salon</span></div>
+    <!-- PHOTO 2 : bordeaux_mood_detail.png
+         Gros plan : verre de vin, bougie allumée sur plateau laiton,
+         fond bordeaux velouté, lumière dorée chaude -->
+    <div class="mood-item" style="background-image:url('bordeaux_mood_detail.png')"><span class="mood-label">Détails</span></div>
+    <!-- PHOTO 3 : bordeaux_mood_matiere.png
+         Flat lay : échantillon velours bordeaux, cuir cognac naturel,
+         laiton brossé, noyer, marbre noir veiné or -->
+    <div class="mood-item" style="background-image:url('bordeaux_mood_matiere.png')"><span class="mood-label">Matières</span></div>
+    <!-- PHOTO 4 : bordeaux_mood_bibliotheque.png
+         Bibliothèque sombre et luxueuse, livres reliés bordeaux et cognac,
+         objets laiton, lumière douce, ambiance club anglais -->
+    <div class="mood-item" style="background-image:url('bordeaux_mood_bibliotheque.png')"><span class="mood-label">Bibliothèque</span></div>
+    <!-- PHOTO 5 : bordeaux_mood_chambre.png
+         Chambre enveloppante, tête de lit velours bordeaux, linge crème satiné,
+         lampes laiton, rideaux bordeaux tombants, lumière tamisée -->
+    <div class="mood-item" style="background-image:url('bordeaux_mood_chambre.png')"><span class="mood-label">Chambre</span></div>
+  </div>
+</section>
+
+<!-- PALETTE -->
+<section class="palette-section fade-in">
+  <div class="section-label">La Palette</div>
+  <h2 class="section-title">Cinq nuances, <em>une harmonie</em></h2>
+  <div class="palette-grid">
+    <div class="palette-swatch sw1"><div class="swatch-info"><span class="swatch-name">Bordeaux Nuit</span><span class="swatch-hex">#3A0A10</span></div></div>
+    <div class="palette-swatch sw2"><div class="swatch-info"><span class="swatch-name">Bordeaux</span><span class="swatch-hex">#7A1A2A</span></div></div>
+    <div class="palette-swatch sw3"><div class="swatch-info"><span class="swatch-name">Cognac</span><span class="swatch-hex">#C8784A</span></div></div>
+    <div class="palette-swatch sw4"><div class="swatch-info"><span class="swatch-name">Caramel Doré</span><span class="swatch-hex">#D4A870</span></div></div>
+    <div class="palette-swatch sw5"><div class="swatch-info"><span class="swatch-name">Crème Chaude</span><span class="swatch-hex">#F5EAE0</span></div></div>
+  </div>
+  <p style="font-size:13px;color:var(--deep);line-height:1.95;max-width:600px;">Le cognac (#C8784A) est la nuance pivot — il fait le lien entre la profondeur du bordeaux et la légèreté de la crème. Sans lui, la palette risque d'être trop sombre. Avec lui, elle respire.</p>
+</section>
+
+<!-- ROOMS -->
+<section class="rooms fade-in">
+  <div class="section-label">Pièce par pièce</div>
+  <h2 class="section-title">La palette <em>dans chaque espace</em></h2>
+  <div class="rooms-grid">
+    <div class="room-card">
+      <!-- PHOTO : bordeaux_chambre.png
+           Chambre somptueuse, tête de lit velours bordeaux capitonné,
+           linge satiné crème, tables de chevet noyer, lampes laiton,
+           rideaux bordeaux sol-plafond, lumière tamisée enveloppante -->
+      <div class="room-photo" style="background-image:url('bordeaux_chambre.png')"></div>
+      <h3 class="room-title">La Chambre</h3>
+      <p class="room-desc">Tête de lit velours bordeaux capitonné, parure satin crème, rideaux bordeaux sol-plafond. La chambre bordeaux est la plus enveloppante qui soit — elle transforme le sommeil en rituel de luxe.</p>
+    </div>
+    <div class="room-card">
+      <!-- PHOTO : bordeaux_bureau.png
+           Bureau ou bibliothèque intime, mur bordeaux profond,
+           bureau noyer massif, fauteuil cuir cognac, étagères livres,
+           lampe laiton bureau, ambiance club très raffiné -->
+      <div class="room-photo" style="background-image:url('bordeaux_bureau.png')"></div>
+      <h3 class="room-title">Le Bureau</h3>
+      <p class="room-desc">Mur bordeaux profond, bureau noyer massif, fauteuil cuir cognac. Le bureau bordeaux est l'espace de concentration ultime — sa couleur stimule sans agiter, inspire sans disperser.</p>
+    </div>
+    <div class="room-full">
+      <!-- PHOTO : bordeaux_salon_full.png
+           Salon luxueux vue large, canapé velours bordeaux, fauteuils cuir cognac,
+           table basse marbre noir pieds laiton, tapis persan tons bordeaux et or,
+           luminaires laiton, bougies, ambiance soirée raffinée -->
+      <div class="room-photo" style="background-image:url('bordeaux_salon_full.png')"></div>
+      <div>
+        <h3 class="room-title">Le Salon</h3>
+        <p class="room-desc" style="margin-bottom:18px;">Canapé velours bordeaux, fauteuils cuir cognac, table basse marbre noir pieds laiton. Le salon bordeaux est un intérieur de caractère — il s'assume complètement et ne cherche pas à plaire à tout le monde.</p>
+        <p class="room-desc">Le secret : équilibrer chaque surface bordeaux par un élément crème ou caramel. Sans ce contrepoint clair, l'espace peut sembler oppressant.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products fade-in">
+  <div class="section-label">Sélection</div>
+  <h2 class="section-title">Les pièces <em>qui font la différence</em></h2>
+  <p class="products-intro">Six objets et textiles pour adopter la palette Bordeaux &amp; Cognac — des pièces signatures pour des intérieurs qui ont du caractère.</p>
+  <div class="products-grid">
+    <div class="product-card">
+      <!-- PHOTO : bordeaux_produit_coussin.png
+           Coussin velours bordeaux profond, reflets soyeux,
+           fond canapé crème ou cognac, lumière tamisée -->
+      <div class="product-img" style="background-image:url('bordeaux_produit_coussin.png')"></div>
+      <div class="product-info">
+        <div class="product-cat">Textile · Salon</div>
+        <div class="product-name">Coussin Velours Bordeaux</div>
+        <div class="product-desc">Velours côtelé bordeaux profond, 50×50 cm. La pièce textile qui suffit à transformer un canapé neutre en intérieur de caractère — sans engagement total.</div>
+        <a href="#" class="product-link">[Lien affilié à ajouter]</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <!-- PHOTO : bordeaux_produit_vase.png
+           Vase céramique bordeaux mat ou verre teinté bordeaux,
+           branche séchée or, fond neutre sombre, lumière dorée -->
+      <div class="product-img" style="background-image:url('bordeaux_produit_vase.png')"></div>
+      <div class="product-info">
+        <div class="product-cat">Décoration · Accent</div>
+        <div class="product-name">Vase Céramique Bordeaux</div>
+        <div class="product-desc">Céramique émaillée bordeaux mat, forme ovoïde. La pièce décorative signature — posée seule sur une console noyer, elle suffit à installer l'ambiance.</div>
+        <a href="#" class="product-link">[Lien affilié à ajouter]</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <!-- PHOTO : bordeaux_produit_bougie.png
+           Bougie pilier bordeaux ou contenant verre ambré foncé,
+           flamme allumée, plateau laiton, fond sombre luxueux -->
+      <div class="product-img" style="background-image:url('bordeaux_produit_bougie.png')"></div>
+      <div class="product-info">
+        <div class="product-cat">Ambiance · Bougie</div>
+        <div class="product-name">Bougie Cire Bordeaux &amp; Oud</div>
+        <div class="product-desc">Cire naturelle bordeaux, parfum oud et cuir. La bougie qui complète olfactivement et visuellement la palette — chaleur, profondeur, raffinement.</div>
+        <a href="#" class="product-link">[Lien affilié à ajouter]</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <!-- PHOTO : bordeaux_produit_plaid.png
+           Plaid laine bordeaux à larges côtes ou chevrons,
+           drapé sur fauteuil cuir cognac, lumière tamisée dorée -->
+      <div class="product-img" style="background-image:url('bordeaux_produit_plaid.png')"></div>
+      <div class="product-info">
+        <div class="product-cat">Textile · Confort</div>
+        <div class="product-name">Plaid Laine Bordeaux</div>
+        <div class="product-desc">Laine mérinos bordeaux, motif chevron subtil. Le plaid qui installe l'ambiance automne-hiver immédiatement — drapé sur un fauteuil cognac, il est parfait.</div>
+        <a href="#" class="product-link">[Lien affilié à ajouter]</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <!-- PHOTO : bordeaux_produit_lampe.png
+           Lampe de table base laiton brossé ou noyer,
+           abat-jour bordeaux ou cognac, lumière chaude tamisée, fond sombre -->
+      <div class="product-img" style="background-image:url('bordeaux_produit_lampe.png')"></div>
+      <div class="product-info">
+        <div class="product-cat">Luminaire · Ambiance</div>
+        <div class="product-name">Lampe Laiton &amp; Abat-jour Cognac</div>
+        <div class="product-desc">Base laiton brossé, abat-jour lin cognac. Une lumière chaude et tamisée qui révèle toute la profondeur des tons bordeaux — indispensable pour l'ambiance.</div>
+        <a href="#" class="product-link">[Lien affilié à ajouter]</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <!-- PHOTO : bordeaux_produit_parure.png
+           Parure de lit satin crème ou bordeaux, plis naturels soyeux,
+           lumière tamisée dorée, ambiance chambre luxueuse -->
+      <div class="product-img" style="background-image:url('bordeaux_produit_parure.png')"></div>
+      <div class="product-info">
+        <div class="product-cat">Textile · Chambre</div>
+        <div class="product-name">Parure Satin Crème Ivoire</div>
+        <div class="product-desc">Satin de coton crème ivoire, 200 fils. Le contrepoint indispensable — dans une chambre bordeaux, le linge de lit crème est ce qui empêche l'excès et apporte l'élégance.</div>
+        <a href="#" class="product-link">[Lien affilié à ajouter]</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIPS -->
+<section class="tips fade-in">
+  <div class="section-label">Les Règles d'Or</div>
+  <h2 class="section-title">Adopter le Bordeaux <em>sans se tromper</em></h2>
+  <div class="tips-grid">
+    <div class="tip-card">
+      <div class="tip-number">01</div>
+      <div class="tip-title">Ne pas surcharger</div>
+      <p class="tip-text">Le bordeaux est une couleur puissante — un mur suffit, ou un canapé, jamais les deux en même temps dans un petit espace. La règle des 60/30/10 s'applique strictement : 60% neutre crème, 30% cognac, 10% bordeaux pur.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-number">02</div>
+      <div class="tip-title">Miser sur le velours</div>
+      <p class="tip-text">Le bordeaux en velours est incomparable — la matière amplifie la profondeur de la couleur et crée des reflets changeants selon la lumière. En coton mat ou lin, il perd la moitié de son caractère. Investissez dans la qualité textile.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-number">03</div>
+      <div class="tip-title">Soigner l'éclairage</div>
+      <p class="tip-text">Le bordeaux absorbe la lumière — une pièce bordeaux mal éclairée devient oppressante. Multiplier les sources lumineuses tamisées : lampes de table laiton, bougies, appliques. Évitez absolument les néons ou la lumière blanche froide.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <div class="footer-logo">AUR<span>E</span>A</div>
+    <div class="footer-text">Décoration intérieure · Couleur · Tendances</div>
+  </div>
+  <div class="footer-nav">
+    <a href="#">Pinterest</a>
+    <a href="#">Contact</a>
+    <a href="#">Mentions légales</a>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-30LC353DER"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-30LC353DER");
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sélection — Produits déco choisis par AUREA</title>
+<meta name="description" content="Une sélection de produits déco soigneusement choisis par AUREA — peintures, luminaires, textiles, mobilier et objets déco organisés par palette couleur.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  :root { --cream:#F7F2EE; --dark:#18160F; --gold:#B8976A; --text:#3A3428; --line:rgba(184,151,106,0.2); --muted:#8A7A5A; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Jost',sans-serif; font-weight:300; background:var(--cream); color:var(--text); overflow-x:hidden; }
+
+  /* HEADER */
+  header { position:fixed; top:0; left:0; right:0; z-index:100; padding:20px 48px; display:flex; justify-content:space-between; align-items:center; background:rgba(247,242,238,0.92); backdrop-filter:blur(12px); border-bottom:1px solid var(--line); }
+  .logo { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:300; letter-spacing:0.4em; text-transform:uppercase; color:var(--dark); text-decoration:none; }
+  .logo span { color:var(--gold); }
+  nav { display:flex; gap:32px; }
+  nav a { font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); text-decoration:none; transition:color 0.3s; }
+  nav a:hover, nav a.active { color:var(--dark); }
+
+  /* HERO */
+  .page-hero { padding:160px 80px 80px; background:var(--dark); position:relative; overflow:hidden; }
+  .page-hero::before { content:''; position:absolute; top:0; right:0; width:45%; height:100%; background:url('flat lay deco.png') center/cover no-repeat; opacity:0.12; }
+  .page-hero::after { content:''; position:absolute; bottom:0; left:80px; right:80px; height:1px; background:linear-gradient(to right, transparent, rgba(184,151,106,0.4), transparent); }
+  .page-hero-label { font-size:10px; letter-spacing:0.4em; text-transform:uppercase; color:var(--gold); margin-bottom:20px; position:relative; }
+  .page-hero-title { font-family:'Cormorant Garamond',serif; font-size:clamp(40px,6vw,80px); font-weight:300; color:#fff; line-height:1.1; max-width:700px; position:relative; }
+  .page-hero-title em { font-style:italic; color:rgba(247,242,238,0.4); }
+  .page-hero-sub { margin-top:24px; font-size:14px; color:rgba(255,255,255,0.4); max-width:500px; line-height:1.9; position:relative; }
+
+  /* FILTRES TOOLBAR */
+  .filtres-toolbar { padding:20px 80px; background:#fff; border-bottom:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; position:sticky; top:62px; z-index:50; }
+  .filtres-actifs { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+  .filtre-actif-tag { font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:var(--dark); background:var(--cream); border:1px solid var(--line); padding:6px 14px; display:flex; align-items:center; gap:8px; }
+  .filtre-actif-tag button { background:none; border:none; cursor:pointer; color:var(--muted); font-size:12px; line-height:1; padding:0; }
+  .filtre-actif-tag button:hover { color:var(--dark); }
+  .filtres-placeholder { font-size:11px; color:var(--muted); letter-spacing:0.1em; }
+  .btn-filtrer { display:flex; align-items:center; gap:10px; font-family:'Jost',sans-serif; font-size:10px; letter-spacing:0.25em; text-transform:uppercase; color:var(--dark); background:transparent; border:1px solid var(--dark); padding:10px 20px; cursor:pointer; transition:all 0.25s; flex-shrink:0; }
+  .btn-filtrer:hover { background:var(--dark); color:#fff; }
+  .btn-filtrer svg { width:14px; height:14px; }
+
+  /* DRAWER */
+  .drawer-overlay { position:fixed; inset:0; background:rgba(24,22,15,0.5); z-index:200; opacity:0; visibility:hidden; transition:opacity 0.35s, visibility 0.35s; backdrop-filter:blur(4px); }
+  .drawer-overlay.open { opacity:1; visibility:visible; }
+  .drawer { position:fixed; top:0; right:0; bottom:0; width:420px; max-width:95vw; background:var(--cream); z-index:201; transform:translateX(100%); transition:transform 0.4s cubic-bezier(0.16,1,0.3,1); overflow-y:auto; display:flex; flex-direction:column; }
+  .drawer.open { transform:translateX(0); }
+  .drawer-header { padding:32px 40px 24px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--line); flex-shrink:0; }
+  .drawer-title { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; color:var(--dark); }
+  .drawer-close { background:none; border:none; cursor:pointer; font-size:18px; color:var(--muted); width:36px; height:36px; display:flex; align-items:center; justify-content:center; transition:color 0.2s; }
+  .drawer-close:hover { color:var(--dark); }
+  .drawer-body { padding:40px; flex:1; display:flex; flex-direction:column; gap:40px; }
+  .drawer-group-label { font-size:9px; letter-spacing:0.4em; text-transform:uppercase; color:var(--gold); margin-bottom:16px; }
+  .drawer-tags { display:flex; flex-wrap:wrap; gap:8px; }
+  .filtre-tag { font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:var(--text); border:1px solid var(--line); padding:10px 18px; cursor:pointer; transition:all 0.25s; background:transparent; font-family:'Jost',sans-serif; }
+  .filtre-tag:hover { border-color:var(--gold); color:var(--dark); }
+  .filtre-tag.active { background:var(--dark); color:#fff; border-color:var(--dark); }
+
+  /* PASTILLES PALETTE */
+  .filtre-palette { display:flex; align-items:center; gap:10px; font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:var(--text); border:1px solid var(--line); padding:8px 16px; cursor:pointer; transition:all 0.25s; background:transparent; font-family:'Jost',sans-serif; }
+  .filtre-palette:hover { border-color:var(--gold); color:var(--dark); }
+  .filtre-palette.active { background:var(--dark); color:#fff; border-color:var(--dark); }
+  .filtre-palette.active .palette-pill { border-color:rgba(255,255,255,0.5); }
+  .palette-pill { width:16px; height:16px; border-radius:50%; border:2px solid rgba(58,52,40,0.2); flex-shrink:0; transition:border-color 0.25s; }
+  .drawer-footer { padding:24px 40px; border-top:1px solid var(--line); display:flex; gap:12px; flex-shrink:0; }
+  .drawer-apply { flex:1; background:var(--dark); color:#fff; border:none; font-family:'Jost',sans-serif; font-size:10px; letter-spacing:0.3em; text-transform:uppercase; padding:14px; cursor:pointer; transition:background 0.25s; }
+  .drawer-apply:hover { background:#2A2820; }
+  .drawer-reset { background:transparent; color:var(--muted); border:1px solid var(--line); font-family:'Jost',sans-serif; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; padding:14px 20px; cursor:pointer; transition:all 0.25s; }
+  .drawer-reset:hover { border-color:var(--dark); color:var(--dark); }
+
+  /* COUPS DE COEUR */
+  .coups-coeur { padding:80px 80px 0; }
+  .section-header { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:40px; }
+  .section-eyebrow { font-size:10px; letter-spacing:0.35em; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
+  .section-title { font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:300; color:var(--dark); }
+  .section-title em { font-style:italic; color:var(--muted); }
+  .section-count { font-size:11px; color:var(--muted); letter-spacing:0.1em; }
+
+  .coups-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:3px; }
+  .coup-card { position:relative; overflow:hidden; height:480px; text-decoration:none; display:block; }
+  .coup-card:first-child { grid-row:span 1; height:480px; }
+  .coup-img { position:absolute; inset:0; background-size:cover; background-position:center; transition:transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94); }
+  .coup-card:hover .coup-img { transform:scale(1.04); }
+  .coup-veil { position:absolute; inset:0; background:linear-gradient(to top, rgba(24,22,15,0.75) 0%, rgba(24,22,15,0.1) 55%); }
+  .coup-content { position:absolute; bottom:0; left:0; right:0; padding:28px 32px; }
+  .coup-cat { font-size:9px; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
+  .coup-name { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:300; color:#fff; line-height:1.3; margin-bottom:4px; }
+  .coup-brand { font-size:11px; color:rgba(255,255,255,0.45); margin-bottom:12px; letter-spacing:0.1em; }
+  .coup-prix { font-size:13px; color:#fff; display:flex; align-items:center; justify-content:space-between; }
+  .coup-prix-val { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:300; }
+  .coup-cta { font-size:9px; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); border:1px solid rgba(184,151,106,0.4); padding:6px 14px; transition:all 0.3s; }
+  .coup-card:hover .coup-cta { background:var(--gold); color:#fff; border-color:var(--gold); }
+  .coup-palette-dot { position:absolute; top:20px; right:20px; width:12px; height:12px; border-radius:50%; border:2px solid rgba(255,255,255,0.6); }
+
+  /* SÉPARATEUR */
+  .separator { height:1px; background:linear-gradient(to right, transparent, rgba(184,151,106,0.3), transparent); margin:64px 80px; }
+
+  /* GRILLE PRODUITS */
+  .produits-section { padding:0 80px 100px; }
+  .produits-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+
+  .produit-card { background:#fff; text-decoration:none; display:block; transition:transform 0.3s; }
+  .produit-card:hover { transform:translateY(-4px); }
+  .produit-img { height:220px; overflow:hidden; position:relative; background:#EDE8E2; }
+  .produit-img-bg { width:100%; height:100%; background-size:cover; background-position:center; background-color:#E8E0D8; transition:transform 0.6s ease; }
+  .produit-card:hover .produit-img-bg { transform:scale(1.05); }
+  .produit-palette { position:absolute; top:12px; left:12px; display:flex; gap:4px; }
+  .produit-palette-dot { width:8px; height:8px; border-radius:50%; border:1.5px solid rgba(255,255,255,0.8); }
+  .produit-body { padding:20px; }
+  .produit-cat { font-size:9px; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:6px; }
+  .produit-name { font-family:'Cormorant Garamond',serif; font-size:17px; font-weight:300; color:var(--dark); line-height:1.3; margin-bottom:4px; }
+  .produit-brand { font-size:11px; color:var(--muted); margin-bottom:12px; }
+  .produit-footer { display:flex; justify-content:space-between; align-items:center; padding-top:12px; border-top:1px solid var(--line); }
+  .produit-prix { font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:300; color:var(--dark); }
+  .produit-lien { font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); transition:color 0.3s; }
+  .produit-card:hover .produit-lien { color:var(--gold); }
+
+  /* CATÉGORIE TITRE */
+  .cat-titre { grid-column:1/-1; display:flex; align-items:center; gap:20px; padding:16px 0 8px; border-bottom:1px solid var(--line); margin-bottom:8px; }
+  .cat-titre h3 { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; color:var(--dark); }
+  .cat-titre h3 em { font-style:italic; color:var(--gold); }
+  .cat-titre-count { font-size:10px; letter-spacing:0.2em; color:var(--muted); }
+
+  /* HIDDEN pour filtres JS */
+  .produit-card[data-hidden="true"] { display:none; }
+  .cat-block { margin-bottom:56px; }
+  .cat-block[data-hidden="true"] { display:none; }
+
+  /* FOOTER */
+  footer { background:var(--dark); padding:56px 80px; display:flex; justify-content:space-between; align-items:center; }
+  .footer-logo { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; letter-spacing:0.3em; text-transform:uppercase; color:#fff; }
+  .footer-logo span { color:var(--gold); }
+  .footer-text { font-size:11px; color:rgba(247,242,238,0.3); letter-spacing:0.1em; margin-top:6px; }
+  .footer-nav { display:flex; gap:24px; }
+  .footer-nav a { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(247,242,238,0.4); text-decoration:none; transition:color 0.3s; }
+  .footer-nav a:hover { color:#fff; }
+
+  .fade-in { opacity:0; transform:translateY(20px); transition:opacity 0.7s ease, transform 0.7s ease; }
+  .fade-in.visible { opacity:1; transform:none; }
+
+  @media (max-width:1024px) {
+    .produits-grid { grid-template-columns:repeat(3,1fr); }
+    .coups-grid { grid-template-columns:1fr 1fr; }
+    .coup-card:nth-child(3) { display:none; }
+  }
+  @media (max-width:768px) {
+    header { padding:16px 24px; } nav { display:none; }
+    .page-hero { padding:120px 24px 60px; }
+    .filtres { padding:24px; top:56px; }
+    .filtres-inner { gap:24px; }
+    .filtre-divider { display:none; }
+    .coups-coeur { padding:48px 24px 0; }
+    .coups-grid { grid-template-columns:1fr; }
+    .coup-card:nth-child(2), .coup-card:nth-child(3) { display:none; }
+    .separator { margin:48px 24px; }
+    .produits-section { padding:0 24px 60px; }
+    .produits-grid { grid-template-columns:1fr 1fr; gap:16px; }
+    footer { flex-direction:column; gap:24px; text-align:center; padding:40px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">AUR<span>E</span>A</a>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="couleurs.html">Couleurs</a>
+    <a href="inspirations.html">Inspirations</a>
+    <a href="selection.html" class="active">Sélection</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-label">Produits · Coup de cœur · Sélection AUREA</div>
+  <h1 class="page-hero-title">Une sélection<br><em>pensée par palette</em></h1>
+  <p class="page-hero-sub">Chaque produit est choisi pour s'intégrer dans une palette précise. Filtrez par univers couleur ou par catégorie pour trouver exactement ce qu'il vous faut.</p>
+</div>
+
+<!-- DRAWER OVERLAY -->
+<div class="drawer-overlay" id="drawer-overlay" onclick="closeDrawer()"></div>
+
+<!-- DRAWER -->
+<div class="drawer" id="drawer">
+  <div class="drawer-header">
+    <div class="drawer-title">Filtrer</div>
+    <button class="drawer-close" onclick="closeDrawer()">✕</button>
+  </div>
+  <div class="drawer-body">
+    <div>
+      <div class="drawer-group-label">Par palette</div>
+      <div class="drawer-tags">
+        <button class="filtre-palette active" data-filtre="all" data-type="palette"><span class="palette-pill" style="background:linear-gradient(135deg,#7AAEC4,#C4704A,#7A9A6A,#C48A96,#C8B89A,#7A1A2A);"></span>Toutes</button>
+        <button class="filtre-palette" data-filtre="bleu" data-type="palette"><span class="palette-pill" style="background:#7AAEC4;"></span>Bleu Âge de Glace</button>
+        <button class="filtre-palette" data-filtre="terracotta" data-type="palette"><span class="palette-pill" style="background:#C4704A;"></span>Terracotta Solaire</button>
+        <button class="filtre-palette" data-filtre="vert" data-type="palette"><span class="palette-pill" style="background:#7A9A6A;"></span>Vert Sauge</button>
+        <button class="filtre-palette" data-filtre="rose" data-type="palette"><span class="palette-pill" style="background:#C48A96;"></span>Rose Poudré</button>
+        <button class="filtre-palette" data-filtre="grege" data-type="palette"><span class="palette-pill" style="background:#C8B89A;"></span>Grège & Cachemire</button>
+        <button class="filtre-palette" data-filtre="bordeaux" data-type="palette"><span class="palette-pill" style="background:#7A1A2A;"></span>Bordeaux & Cognac</button>
+        <button class="filtre-palette" data-filtre="jardin" data-type="palette"><span class="palette-pill" style="background:#7A9A7A;"></span>Jardin Rustique</button>
+      </div>
+    </div>
+    <div>
+      <div class="drawer-group-label">Par catégorie</div>
+      <div class="drawer-tags">
+        <button class="filtre-tag active" data-filtre="all" data-type="cat">Toutes les catégories</button>
+        <button class="filtre-tag" data-filtre="paques" data-type="cat">🐣 Pâques & Printemps</button>
+        <button class="filtre-tag" data-filtre="peinture" data-type="cat">Peintures & revêtements</button>
+        <button class="filtre-tag" data-filtre="assises" data-type="cat">Canapés & assises</button>
+        <button class="filtre-tag" data-filtre="luminaires" data-type="cat">Luminaires</button>
+        <button class="filtre-tag" data-filtre="textiles" data-type="cat">Textiles & tapis</button>
+        <button class="filtre-tag" data-filtre="mobilier" data-type="cat">Mobilier</button>
+        <button class="filtre-tag" data-filtre="objets" data-type="cat">Vases, miroirs & objets</button>
+        <button class="filtre-tag" data-filtre="jardin" data-type="cat">Jardin & extérieur</button>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-footer">
+    <button class="drawer-reset" onclick="resetFiltres()">Réinitialiser</button>
+    <button class="drawer-apply" onclick="closeDrawer()">Voir les produits</button>
+  </div>
+</div>
+
+<!-- BARRE FILTRES -->
+<div class="filtres-toolbar">
+  <div class="filtres-actifs" id="filtres-actifs">
+    <span class="filtres-placeholder">Aucun filtre actif — tous les produits</span>
+  </div>
+  <button class="btn-filtrer" onclick="openDrawer()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="20" y2="12"/><line x1="12" y1="18" x2="20" y2="18"/></svg>
+    Filtrer
+  </button>
+</div>
+
+
+<!-- GRILLE COMPLÈTE -->
+<section class="produits-section fade-in">
+  <div class="section-header">
+    <div>
+      <div class="section-eyebrow">Catalogue</div>
+      <h2 class="section-title">Toute la <em>sélection</em></h2>
+    </div>
+    <div class="section-count" id="count">71 produits</div>
+  </div>
+
+  <!-- CANAPÉS & ASSISES -->
+  <div id="assises" class="cat-block" data-cat="assises">
+    <div class="produits-grid">
+      <div class="cat-titre">
+        <h3>Canapés & <em>assises</em></h3>
+        <span class="cat-titre-count">5 références</span>
+      </div>
+      <a href="https://amzn.to/4rHUtxZ" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="all" data-cat="assises">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('canape_angle_bleu.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7AAEC4;"></div><div class="produit-palette-dot" style="background:#C4704A;"></div><div class="produit-palette-dot" style="background:#C8B89A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Canapés · Angle</div><div class="produit-name">Canapé d'angle Convertible 252CM, 3 places</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/475HSgD" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="all" data-cat="assises">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('canape_rembourre_bleu.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7AAEC4;"></div><div class="produit-palette-dot" style="background:#C4704A;"></div><div class="produit-palette-dot" style="background:#C8B89A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Canapés · Convertible</div><div class="produit-name">Grand canapé Convertible rembourré</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/4utYmJo" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="all" data-cat="assises">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('canape_bleu_5_coussins.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7AAEC4;"></div><div class="produit-palette-dot" style="background:#C4704A;"></div><div class="produit-palette-dot" style="background:#C8B89A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Canapés · 3 places</div><div class="produit-name">Canapé Convertible 3 Places 5 coussins</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/4teP8j1" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="all" data-cat="assises">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('pouf_carre_ivoire.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7AAEC4;"></div><div class="produit-palette-dot" style="background:#C4704A;"></div><div class="produit-palette-dot" style="background:#C8B89A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Assises · Pouf</div><div class="produit-name">Pouf moderne carré ivoire</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/4bm1EXG" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="all" data-cat="assises">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('pouf_velours_cotele.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7AAEC4;"></div><div class="produit-palette-dot" style="background:#C4704A;"></div><div class="produit-palette-dot" style="background:#C8B89A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Assises · Pouf</div><div class="produit-name">Pouf Velours Côtelé</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+    </div>
+  </div>
+
+  <!-- MOBILIER -->
+  <div id="mobilier" class="cat-block" data-cat="mobilier">
+    <div class="produits-grid">
+      <div class="cat-titre">
+        <h3><em>Mobilier</em></h3>
+        <span class="cat-titre-count">5 références</span>
+      </div>
+      <a href="https://amzn.to/3NK4cWA" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="all" data-cat="mobilier">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('table_salon_marbre.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7AAEC4;"></div><div class="produit-palette-dot" style="background:#C4704A;"></div><div class="produit-palette-dot" style="background:#C8B89A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Mobilier · Table basse</div><div class="produit-name">Table de Salon Marbre & Laiton</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/4lDK9FT" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="all" data-cat="mobilier">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('2tables_gigogne_ronde.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7AAEC4;"></div><div class="produit-palette-dot" style="background:#C4704A;"></div><div class="produit-palette-dot" style="background:#C8B89A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Mobilier · Tables gigognes</div><div class="produit-name">Ensemble de 2 Tables Gigogne Rondes</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/4slbLSM" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="all" data-cat="mobilier">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('table_salon_marbre_ovale.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7AAEC4;"></div><div class="produit-palette-dot" style="background:#C4704A;"></div><div class="produit-palette-dot" style="background:#C8B89A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Mobilier · Table basse</div><div class="produit-name">Table Basse Salon Effet Marbré Ovale</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/4rK9MWJ" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="all" data-cat="mobilier">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('lot_2_etageres_murales.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7AAEC4;"></div><div class="produit-palette-dot" style="background:#C4704A;"></div><div class="produit-palette-dot" style="background:#C8B89A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Mobilier · Étagère</div><div class="produit-name">Lot 2 étagères murales chêne</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/4cXmH4c" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="all" data-cat="mobilier">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('etagere_chene_fonce.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7AAEC4;"></div><div class="produit-palette-dot" style="background:#C4704A;"></div><div class="produit-palette-dot" style="background:#C8B89A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Mobilier · Étagère</div><div class="produit-name">Étagère murale chêne foncé</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+    </div>
+  </div>
+
+  <!-- TEXTILES & COUSSINS -->
+  <div id="textiles" class="cat-block" data-cat="textiles">
+    <div class="produits-grid">
+      <div class="cat-titre">
+        <h3>Textiles & <em>coussins</em></h3>
+        <span class="cat-titre-count">8 références</span>
+      </div>
+      <a href="https://amzn.to/4uBI9Cc" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="bleu" data-cat="textiles">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('coussin1.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7AAEC4;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Coussins · Lot de 4</div><div class="produit-name">Housses bleu dégradé velours côtelé 45×45</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/416wwW9" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="bleu" data-cat="textiles">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('coussin2.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7AAEC4;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Coussins · Set de 2</div><div class="produit-name">Housses velours bleu marine 45×45</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/47KL7u0" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="bleu" data-cat="textiles">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('coussin3.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7AAEC4;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Coussins · Lot de 2</div><div class="produit-name">Housse boho bleu foncé motif croisé 45×45</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/4sgTMwL" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="bleu" data-cat="textiles">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('coussin4.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7AAEC4;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Coussins · Lot de 2</div><div class="produit-name">Housses velours décoratif luxe doux</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/4ryYDbu" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="bleu" data-cat="textiles">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('coussin5.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7AAEC4;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Coussins · 45×45</div><div class="produit-name">Housse velours côtelé uni bleu 45×45</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/4dq2d41" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="bleu" data-cat="textiles">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('housse1.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7AAEC4;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Linge de lit · 220×240</div><div class="produit-name">Housse de couette 220×240 + 2 taies</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/4btkc7m" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="bleu" data-cat="textiles">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('housse2.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7AAEC4;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Linge de lit · Coton · 220×240</div><div class="produit-name">Housse de couette coton 220×240</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/4bmx2pb" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="bleu" data-cat="textiles">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('housse3.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7AAEC4;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Linge de lit · 200×200</div><div class="produit-name">Housse de couette brodée bleu marine 200×200</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+    </div>
+  </div>
+
+  <!-- LINGE & ARTS DE LA TABLE -->
+  <div id="linge-table" class="cat-block" data-cat="textiles">
+    <div class="produits-grid">
+      <div class="cat-titre">
+        <h3>Linge & <em>arts de la table</em></h3>
+        <span class="cat-titre-count">7 références</span>
+      </div>
+      <a href="https://amzn.to/47lMQ95" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="all" data-cat="textiles">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('6_sets_table-rond.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7A9A7A;"></div><div class="produit-palette-dot" style="background:#C8B89A;"></div><div class="produit-palette-dot" style="background:#B8976A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Table · Set de 6</div><div class="produit-name">Lot de 6 sets de table ronds tissés en rotin - 33 cm</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/3PXLCLa" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="all" data-cat="textiles">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('6_set_rond.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7A9A7A;"></div><div class="produit-palette-dot" style="background:#C8B89A;"></div><div class="produit-palette-dot" style="background:#B8976A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Table · Set de 6</div><div class="produit-name">Set de Table Rond tressé en Jacinthe d'eau 6pcs</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/4rX5rjl" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="all" data-cat="textiles">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('nappe_lin.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7A9A7A;"></div><div class="produit-palette-dot" style="background:#C8B89A;"></div><div class="produit-palette-dot" style="background:#B8976A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Table · Nappe</div><div class="produit-name">Nappe en lin 100 % lin</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/4lRaAYT" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="all" data-cat="textiles">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('nappe_effet_lin.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7A9A7A;"></div><div class="produit-palette-dot" style="background:#C8B89A;"></div><div class="produit-palette-dot" style="background:#B8976A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Table · Nappe</div><div class="produit-name">Nappe Beige Aspect Lin Tissu Lavable et Imperméable</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/4lYhOdt" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="all" data-cat="textiles">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('serviette_lot12.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7A9A7A;"></div><div class="produit-palette-dot" style="background:#C8B89A;"></div><div class="produit-palette-dot" style="background:#B8976A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Table · Serviettes</div><div class="produit-name">Lot de 12 Serviettes ajourées - 100 % pur lin</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/3NTwnCx" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="all" data-cat="textiles">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('serviette_lot12_blanc.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7A9A7A;"></div><div class="produit-palette-dot" style="background:#C8B89A;"></div><div class="produit-palette-dot" style="background:#B8976A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Table · Serviettes</div><div class="produit-name">Lot de 12 Serviette de Table en Lin - Blanc Cassé</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/3NAEnZ5" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="all" data-cat="textiles">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('serviette_lot12_marron.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7A9A7A;"></div><div class="produit-palette-dot" style="background:#C8B89A;"></div><div class="produit-palette-dot" style="background:#B8976A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Table · Serviettes</div><div class="produit-name">Lot de 10 Serviettes de Table - Marron nude</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+    </div>
+  </div>
+
+
+  <!-- OBJETS DÉCO & VASES -->
+  <div id="objets" class="cat-block" data-cat="objets">
+    <div class="produits-grid">
+      <div class="cat-titre">
+        <h3>Vases & <em>objets déco</em></h3>
+        <span class="cat-titre-count">11 références</span>
+      </div>
+      <a href="https://amzn.to/4lD0vhK" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="all" data-cat="objets">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('pampa_sechees_100.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7AAEC4;"></div><div class="produit-palette-dot" style="background:#C4704A;"></div><div class="produit-palette-dot" style="background:#C8B89A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Décoration · Fleurs séchées</div><div class="produit-name">Décoration en pampas séchées, 100 pièces</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/4uCYbM3" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="all" data-cat="objets">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('Lot_90_herbespampa.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7AAEC4;"></div><div class="produit-palette-dot" style="background:#C4704A;"></div><div class="produit-palette-dot" style="background:#C8B89A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Décoration · Lot de 90</div><div class="produit-name">Lot herbes pampa séchées</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/4s7H4Ac" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="bleu" data-cat="objets">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('vase1.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7AAEC4;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Vases · 20cm</div><div class="produit-name">Vase herbe de la pampa bleu</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/4ba0D4Y" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="bleu" data-cat="objets">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('vase2.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7AAEC4;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Vases · Lot de 3</div><div class="produit-name">Petits vases céramique bleu</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/3N8G9jY" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="bleu" data-cat="objets">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('vase3.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7AAEC4;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Vases · Lot de 2</div><div class="produit-name">Vases céramique bleu design</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/4sGhxho" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="bleu" data-cat="objets">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('vase4.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7AAEC4;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Vases · Céramique</div><div class="produit-name">Vase cylindrique bleu roi 9.5×13.5cm</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/4sLD8oL" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="bleu" data-cat="objets">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('vase5.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7AAEC4;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Vases · Lot de 12</div><div class="produit-name">Vases verre bleu vintage</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/4uCogei" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="bleu" data-cat="objets">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('serviette1.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7AAEC4;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Salle de bain · Set 4 pièces</div><div class="produit-name">Set de bain 4 pièces bleu royal</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/3NkQcCA" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="bleu" data-cat="objets">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('serviette2.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7AAEC4;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Salle de bain · Lot de 4</div><div class="produit-name">Serviettes de bain 69×139cm bleu marine</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/40vjKjV" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="bleu" data-cat="objets">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('bougie1.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7AAEC4;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Décoration · Céramique</div><div class="produit-name">Photophore céramique maison bleu marine</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/4sMRaGy" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="bleu" data-cat="objets">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('bougie2.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7AAEC4;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Bougies · Lot de 24</div><div class="produit-name">Bougeoirs verre bleu vintage lot de 24</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+    </div>
+  </div>
+
+  <!-- VAISSELLE & ARTS DE LA TABLE -->
+  <div id="vaisselle-table" class="cat-block" data-cat="objets">
+    <div class="produits-grid">
+      <div class="cat-titre">
+        <h3>Vaisselle & <em>arts de la table</em></h3>
+        <span class="cat-titre-count">12 références</span>
+      </div>
+      <a href="https://amzn.to/47QwmpC" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="all" data-cat="objets">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('Lot_assiettes_ceramique.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7A9A7A;"></div><div class="produit-palette-dot" style="background:#C8B89A;"></div><div class="produit-palette-dot" style="background:#B8976A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Vaisselle · Assiettes</div><div class="produit-name">Lot d'assiettes plates en céramique crème de 3 à 26 cm</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/41pBLjP" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="all" data-cat="objets">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('Lot_assiettes_6_petites.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7A9A7A;"></div><div class="produit-palette-dot" style="background:#C8B89A;"></div><div class="produit-palette-dot" style="background:#B8976A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Vaisselle · Assiettes</div><div class="produit-name">Lot de 6 Assiettes Petites 21.6cm</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/40SaAhq" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="all" data-cat="objets">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('Lot_6_verres_eau.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7A9A7A;"></div><div class="produit-palette-dot" style="background:#C8B89A;"></div><div class="produit-palette-dot" style="background:#B8976A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Table · Verres</div><div class="produit-name">Rocco Lot 6 Verres à Eau</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/4sCQNis" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="all" data-cat="objets">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('Lot_6_gobeliet_eau.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7A9A7A;"></div><div class="produit-palette-dot" style="background:#C8B89A;"></div><div class="produit-palette-dot" style="background:#B8976A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Table · Gobelets</div><div class="produit-name">Lot de 6 Gobelets Bas Fabi'Eau 25cl Transparent</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/4uKlQu5" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="all" data-cat="objets">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('carafe_eau_1l.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7A9A7A;"></div><div class="produit-palette-dot" style="background:#C8B89A;"></div><div class="produit-palette-dot" style="background:#B8976A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Table · Carafe</div><div class="produit-name">Carafe Eau en Verre 1 l</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/4bItBaZ" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="all" data-cat="objets">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('domestic_carafe.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7A9A7A;"></div><div class="produit-palette-dot" style="background:#C8B89A;"></div><div class="produit-palette-dot" style="background:#B8976A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Table · Carafe</div><div class="produit-name">Domestic Carafe</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/4svARyj" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="all" data-cat="objets">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('carafe_eau_refrigerateur.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7A9A7A;"></div><div class="produit-palette-dot" style="background:#C8B89A;"></div><div class="produit-palette-dot" style="background:#B8976A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Table · Carafe</div><div class="produit-name">Carafe d'eau pour Porte de Réfrigérateur</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/4c1FqKS" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="all" data-cat="objets">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('carafe_belvere_blanc.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7A9A7A;"></div><div class="produit-palette-dot" style="background:#C8B89A;"></div><div class="produit-palette-dot" style="background:#B8976A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Table · Carafe</div><div class="produit-name">SKLUM Carafe 1.8L Belvère Blanc Gardenia</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/3PXERJl" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="all" data-cat="objets">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('carafe_maya_violet.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7A9A7A;"></div><div class="produit-palette-dot" style="background:#C8B89A;"></div><div class="produit-palette-dot" style="background:#B8976A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Table · Carafe</div><div class="produit-name">Bloomingville Carafe Maya - Violet - Céramique</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/40QPvUE" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="all" data-cat="objets">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('pichet_nature_ceramique.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7A9A7A;"></div><div class="produit-palette-dot" style="background:#C8B89A;"></div><div class="produit-palette-dot" style="background:#B8976A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Table · Pichet</div><div class="produit-name">Bloomingville Pichet Bea, Nature, Céramique</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/4lLbOEK" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="all" data-cat="objets">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('plateaux_service.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7A9A7A;"></div><div class="produit-palette-dot" style="background:#C8B89A;"></div><div class="produit-palette-dot" style="background:#B8976A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Service · Plateaux</div><div class="produit-name">Lot de 2 plateaux de service rectangulaires en céramique blanche, 38 cm,</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/3PX3TZ3" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="all" data-cat="objets">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('grande_assiettes_beige.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7A9A7A;"></div><div class="produit-palette-dot" style="background:#C8B89A;"></div><div class="produit-palette-dot" style="background:#B8976A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Service · Assiettes</div><div class="produit-name">Lot de 2 grandes assiettes de service, beige</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+    </div>
+  </div>
+
+  <!-- PÂQUES · PANIERS & DÉTAILS -->
+  <div id="paques-objets" class="cat-block" data-cat="paques">
+    <div class="produits-grid">
+      <div class="cat-titre">
+        <h3>Pâques · <em>paniers & détails</em></h3>
+        <span class="cat-titre-count">11 références</span>
+      </div>
+      <a href="https://amzn.to/4sB4hLq" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="jardin" data-cat="paques">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('lot_corbeille.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7A9A7A;"></div><div class="produit-palette-dot" style="background:#C8B89A;"></div><div class="produit-palette-dot" style="background:#B8976A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Pâques · Paniers</div><div class="produit-name">Lot de 10 Corbeilles Tressées en Osier Avec Anse</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/3NodTtP" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="jardin" data-cat="paques">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('2pieces_panier.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7A9A7A;"></div><div class="produit-palette-dot" style="background:#C8B89A;"></div><div class="produit-palette-dot" style="background:#B8976A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Pâques · Paniers</div><div class="produit-name">2 Pièces Panier Rangement Osier</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/3NHtODm" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="jardin" data-cat="paques">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('5paniers_osier.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7A9A7A;"></div><div class="produit-palette-dot" style="background:#C8B89A;"></div><div class="produit-palette-dot" style="background:#B8976A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Pâques · Paniers</div><div class="produit-name">5 Pièces Corbeille Osier de Pâques</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/4uUo622" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="jardin" data-cat="paques">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('coquetiers_6.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7A9A7A;"></div><div class="produit-palette-dot" style="background:#C8B89A;"></div><div class="produit-palette-dot" style="background:#B8976A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Table · Coquetiers</div><div class="produit-name">6X Coquetiers en Céramique</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/4t5cmHY" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="jardin" data-cat="paques">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('coquetiers6.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7A9A7A;"></div><div class="produit-palette-dot" style="background:#C8B89A;"></div><div class="produit-palette-dot" style="background:#B8976A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Table · Coquetiers</div><div class="produit-name">6X Coquetiers en Céramique - Blanc</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/40NQmWf" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="jardin" data-cat="paques">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('2lapins_ceramique.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7A9A7A;"></div><div class="produit-palette-dot" style="background:#C8B89A;"></div><div class="produit-palette-dot" style="background:#B8976A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Pâques · Décoration</div><div class="produit-name">Lot de 2 lapins en céramique - Blanc crème - 14,5 cm</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="#" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="jardin" data-cat="paques">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('nappe_lin_lave_naturel.png');background-color:#E8E0D0;"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7A9A7A;"></div><div class="produit-palette-dot" style="background:#C8B898;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Linge de table · Naturel</div><div class="produit-name">Nappe Lin Lavé Naturel</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="#" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="jardin" data-cat="paques">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('serviettes_lin_lave_lot4.png');background-color:#E0D8C8;"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7A9A7A;"></div><div class="produit-palette-dot" style="background:#C8B898;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Linge de table · Lot de 4</div><div class="produit-name">Serviettes Lin Lavé</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="#" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="jardin" data-cat="paques">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('vase_ceramique_blanc_mate.png');background-color:#F0EBE0;"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#E8E0D5;"></div><div class="produit-palette-dot" style="background:#7A9A7A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Vases · Céramique</div><div class="produit-name">Vase Céramique Blanc Mate</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="#" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="jardin" data-cat="paques">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('panier_osier_anse.png');background-color:#E8DCC8;"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#B89B6A;"></div><div class="produit-palette-dot" style="background:#7A9A7A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Décoration · Osier</div><div class="produit-name">Panier Osier avec Anse</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="#" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="jardin" data-cat="paques">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('assiettes_ceramique_mate_lot4.png');background-color:#F0EBE0;"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#E8E0D5;"></div><div class="produit-palette-dot" style="background:#7A9A7A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Art de la table · Lot de 4</div><div class="produit-name">Assiettes Céramique Mate</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+    </div>
+  </div>
+
+
+  <!-- LUMINAIRES -->
+  <div id="luminaires" class="cat-block" data-cat="luminaires">
+    <div class="produits-grid">
+      <div class="cat-titre">
+        <h3><em>Luminaires</em></h3>
+        <span class="cat-titre-count">2 références</span>
+      </div>
+      <a href="https://amzn.to/4lyTlLx" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="bleu" data-cat="luminaires">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('Lampe2.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7AAEC4;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Luminaires · Céramique</div><div class="produit-name">Lampe de table céramique bleu marine</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/47KUjP2" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="bleu" data-cat="luminaires">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('lampe1.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7AAEC4;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Luminaires · Porcelaine</div><div class="produit-name">Abat-jour plissé peint en porcelaine bleue et blanche</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+    </div>
+  </div>
+
+  <!-- PEINTURES -->
+  <div id="peintures" class="cat-block" data-cat="peinture">
+    <div class="produits-grid">
+      <div class="cat-titre">
+        <h3>Peintures & <em>revêtements</em></h3>
+        <span class="cat-titre-count">2 références</span>
+      </div>
+      <a href="https://amzn.to/4uvJZ7p" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="bleu" data-cat="peinture">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('Peinture2.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7AAEC4;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Peinture · Chalk Paint</div><div class="produit-name">Peinture craie bleu bohémienne</div><div class="produit-brand">Chalk Paint</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/40yovJq" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="bleu" data-cat="peinture">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('Peinture1.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7AAEC4;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Peinture · 0,5L</div><div class="produit-name">Peinture Ripolin bleu séram mat 0,5L</div><div class="produit-brand">Ripolin</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+    </div>
+  </div>
+
+  <!-- JARDIN & EXTÉRIEUR -->
+  <div id="jardin" class="cat-block" data-cat="jardin">
+    <div class="produits-grid">
+      <div class="cat-titre">
+        <h3>Jardin & <em>extérieur</em></h3>
+        <span class="cat-titre-count">8 références</span>
+      </div>
+      <a href="https://amzn.to/4rtYG8d" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="jardin" data-cat="jardin">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('jardin_table_lavande.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7A9A7A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Mobilier · Bistro</div><div class="produit-name">Salon Bistro Fer Forgé Blanc</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/4siKsZg" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="jardin" data-cat="jardin">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('banc_jardin_fer.png'); background-size:75%; background-color:#EDE5D8; background-repeat:no-repeat; background-position:center;"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7A9A7A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Mobilier · Banc</div><div class="produit-name">Banc de Jardin Fer Forgé</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/4dq0Z90" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="jardin" data-cat="jardin">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('Jardin_2_places.png'); background-size:75%; background-color:#EDE5D8; background-repeat:no-repeat; background-position:center;"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7A9A7A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Mobilier · Salon</div><div class="produit-name">Salon de Jardin 2 Places</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/4utZnBn" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="jardin" data-cat="jardin">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('jardin_coin_potager.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7A9A7A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Jardinage · Arrosoir</div><div class="produit-name">Arrosoir Zinc</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/4sN6JOz" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="jardin" data-cat="jardin">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('Lucid_Origin_Styled_garden_scene_collection_of_terracotta_and__0.jpg');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#C4714A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Jardinage · Pots</div><div class="produit-name">Pot Terra Cotta</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/4rETUVN" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="jardin" data-cat="jardin">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('Lot_24_pots.png'); background-size:85%; background-color:#EDE5D8; background-repeat:no-repeat; background-position:center;"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#C4714A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Jardinage · Lot de 24</div><div class="produit-name">Lot 24 Pots Terre Cuite</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/4bsw6hL" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="jardin" data-cat="jardin">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('etagere_rustique.png');"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#7A9A7A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Décoration · Étagère</div><div class="produit-name">Étagère Échelle Rustique</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+      <a href="https://amzn.to/47pd2Qn" target="_blank" rel="nofollow sponsored" class="produit-card" data-palette="jardin" data-cat="jardin">
+        <div class="produit-img"><div class="produit-img-bg" style="background-image:url('echelle_fleurs.png'); background-size:75%; background-color:#EDE5D8; background-repeat:no-repeat; background-position:center;"></div><div class="produit-palette"><div class="produit-palette-dot" style="background:#B89B6A;"></div></div></div>
+        <div class="produit-body"><div class="produit-cat">Décoration · Présentoir</div><div class="produit-name">Échelle à Fleurs en Bois</div><div class="produit-brand">Amazon</div><div class="produit-footer"><span class="produit-prix"></span><span class="produit-lien">Voir →</span></div></div>
+      </a>
+    </div>
+  </div>
+
+</section>
+
+<div style="padding:32px 80px; border-top:1px solid rgba(184,151,106,0.15);">
+  <p style="font-size:11px; color:#8A7A5A; line-height:1.8; max-width:700px;">Cette page contient des liens affiliés. Si vous achetez via ces liens, nous percevons une petite commission, sans coût supplémentaire pour vous. Cela nous permet de continuer à proposer des sélections gratuites et indépendantes.</p>
+</div>
+<script>
+  // FADE IN
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.05 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // DRAWER
+  function openDrawer() {
+    document.getElementById('drawer').classList.add('open');
+    document.getElementById('drawer-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDrawer() {
+    document.getElementById('drawer').classList.remove('open');
+    document.getElementById('drawer-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+    applyFiltres();
+  }
+
+  // FILTRES
+  let activePalette = 'all';
+  let activeCat = 'all';
+
+  document.querySelectorAll('.filtre-tag, .filtre-palette').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const type = btn.dataset.type;
+      const filtre = btn.dataset.filtre;
+      document.querySelectorAll(`.filtre-tag[data-type="${type}"], .filtre-palette[data-type="${type}"]`).forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      if (type === 'palette') activePalette = filtre;
+      if (type === 'cat') activeCat = filtre;
+      updateActiveTags();
+    });
+  });
+
+  function updateActiveTags() {
+    const container = document.getElementById('filtres-actifs');
+    const tags = [];
+    if (activePalette !== 'all') {
+      const btn = document.querySelector(`.filtre-palette[data-filtre="${activePalette}"][data-type="palette"]`);
+      if (btn) tags.push({ label: btn.textContent.trim(), type: 'palette' });
+    }
+    if (activeCat !== 'all') {
+      const btn = document.querySelector(`.filtre-tag[data-filtre="${activeCat}"][data-type="cat"]`);
+      if (btn) tags.push({ label: btn.textContent.trim(), type: 'cat' });
+    }
+
+    if (tags.length === 0) {
+      container.innerHTML = '<span class="filtres-placeholder">Aucun filtre actif — tous les produits</span>';
+    } else {
+      container.innerHTML = tags.map(t => `
+        <div class="filtre-actif-tag">${t.label}
+          <button onclick="removeFiltre('${t.type}')">✕</button>
+        </div>`).join('');
+    }
+  }
+
+  function removeFiltre(type) {
+    if (type === 'palette') {
+      activePalette = 'all';
+      document.querySelectorAll('.filtre-palette[data-type="palette"]').forEach(b => b.classList.remove('active'));
+      document.querySelector('.filtre-palette[data-filtre="all"][data-type="palette"]').classList.add('active');
+    }
+    if (type === 'cat') {
+      activeCat = 'all';
+      document.querySelectorAll('.filtre-tag[data-type="cat"]').forEach(b => b.classList.remove('active'));
+      document.querySelector('.filtre-tag[data-filtre="all"][data-type="cat"]').classList.add('active');
+    }
+    updateActiveTags();
+    applyFiltres();
+  }
+
+  function resetFiltres() {
+    activePalette = 'all'; activeCat = 'all';
+    document.querySelectorAll('.filtre-tag').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.filtre-tag[data-filtre="all"]').forEach(b => b.classList.add('active'));
+    updateActiveTags();
+  }
+
+  // AUTO-FILTRE depuis URL (ex: selection.html?palette=jardin)
+  function applyFiltresFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    const palette = params.get('palette');
+    const cat = params.get('cat');
+    if (palette) {
+      activePalette = palette;
+      document.querySelectorAll('.filtre-palette[data-type="palette"]').forEach(b => b.classList.remove('active'));
+      const btn = document.querySelector(`.filtre-palette[data-filtre="${palette}"][data-type="palette"]`);
+      if (btn) btn.classList.add('active');
+    }
+    if (cat) {
+      activeCat = cat;
+      document.querySelectorAll('.filtre-tag[data-type="cat"]').forEach(b => b.classList.remove('active'));
+      const btn = document.querySelector(`.filtre-tag[data-filtre="${cat}"][data-type="cat"]`);
+      if (btn) btn.classList.add('active');
+    }
+    if (palette || cat) {
+      updateActiveTags();
+      applyFiltres();
+    }
+  }
+
+  function applyFiltres() {
+    const cards = document.querySelectorAll('.produit-card');
+    let visible = 0;
+    cards.forEach(card => {
+      const matchPalette = activePalette === 'all' || card.dataset.palette === activePalette;
+      const matchCat = activeCat === 'all' || card.dataset.cat === activeCat;
+      card.style.display = (matchPalette && matchCat) ? 'block' : 'none';
+      if (matchPalette && matchCat) visible++;
+    });
+    document.querySelectorAll('.cat-block').forEach(block => {
+      const visibleCards = block.querySelectorAll('.produit-card:not([style*="display: none"])').length;
+      const catMatch = activeCat === 'all' || block.dataset.cat === activeCat;
+      block.style.display = (catMatch && visibleCards > 0) ? 'block' : 'none';
+    });
+    document.getElementById('count').textContent = visible + ' produit' + (visible > 1 ? 's' : '');
+  }
+
+  applyFiltres();
+  applyFiltresFromURL();
+</script>
+</body>
+</html>

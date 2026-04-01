@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-30LC353DER"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-30LC353DER");
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inspirations & Tendances — AUREA</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  :root { --cream:#F7F2EE; --dark:#18160F; --gold:#B8976A; --text:#3A3428; --line:rgba(184,151,106,0.2); }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Jost',sans-serif; font-weight:300; background:var(--cream); color:var(--text); overflow-x:hidden; }
+
+  header { position:fixed; top:0; left:0; right:0; z-index:100; padding:20px 48px; display:flex; justify-content:space-between; align-items:center; background:rgba(247,242,238,0.92); backdrop-filter:blur(12px); border-bottom:1px solid var(--line); }
+  .logo { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:300; letter-spacing:0.4em; text-transform:uppercase; color:var(--dark); text-decoration:none; }
+  .logo span { color:var(--gold); }
+  nav { display:flex; gap:32px; }
+  nav a { font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:#8A7A5A; text-decoration:none; transition:color 0.3s; }
+  nav a:hover, nav a.active { color:var(--dark); }
+
+  /* HERO */
+  .page-hero { padding:160px 80px 80px; background:var(--dark); position:relative; overflow:hidden; }
+  .page-hero::before { content:''; position:absolute; top:0; right:0; width:50%; height:100%; background:url('grege_salon_hero.png') center/cover no-repeat; opacity:0.15; }
+  .page-hero::after { content:''; position:absolute; bottom:0; left:80px; right:80px; height:1px; background:linear-gradient(to right, transparent, rgba(184,151,106,0.4), transparent); }
+  .page-hero-label { font-size:10px; letter-spacing:0.4em; text-transform:uppercase; color:var(--gold); margin-bottom:20px; position:relative; }
+  .page-hero-title { font-family:'Cormorant Garamond',serif; font-size:clamp(40px,6vw,80px); font-weight:300; color:#fff; line-height:1.1; max-width:700px; position:relative; }
+  .page-hero-title em { font-style:italic; color:rgba(247,242,238,0.45); }
+  .page-hero-sub { margin-top:24px; font-size:14px; color:rgba(255,255,255,0.4); max-width:500px; line-height:1.9; position:relative; }
+  .article-count { position:absolute; right:80px; bottom:80px; font-family:'Cormorant Garamond',serif; font-size:80px; font-weight:300; color:rgba(184,151,106,0.12); line-height:1; }
+
+  /* ARTICLE FEATURED */
+  .featured { display:grid; grid-template-columns:1fr 1fr; min-height:560px; margin-top:0; }
+  .featured-img { position:relative; overflow:hidden; background:url('paille_salon_full.png') center/cover no-repeat; background-color:#8A7868; }
+  .featured-img-overlay { position:absolute; inset:0; background:linear-gradient(to right, transparent 60%, var(--cream)); }
+  .featured-tag { position:absolute; top:32px; left:32px; font-size:9px; letter-spacing:0.35em; text-transform:uppercase; color:#fff; background:var(--gold); padding:7px 14px; }
+  .featured-content { padding:72px 64px; display:flex; flex-direction:column; justify-content:center; border-bottom:1px solid var(--line); }
+  .featured-eyebrow { font-size:10px; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); margin-bottom:20px; }
+  .featured-title { font-family:'Cormorant Garamond',serif; font-size:clamp(28px,3.5vw,48px); font-weight:300; color:var(--dark); line-height:1.2; margin-bottom:24px; }
+  .featured-title em { font-style:italic; color:#8A7A5A; }
+  .featured-excerpt { font-size:14px; line-height:1.95; color:var(--text); margin-bottom:32px; max-width:480px; }
+  .featured-meta { display:flex; align-items:center; gap:24px; margin-bottom:32px; }
+  .featured-meta-item { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:#8A7A5A; }
+  .featured-meta-item span { color:var(--gold); margin-right:6px; }
+  .read-link { display:inline-flex; align-items:center; gap:12px; font-size:11px; letter-spacing:0.25em; text-transform:uppercase; color:var(--dark); text-decoration:none; border-bottom:1px solid var(--gold); padding-bottom:4px; transition:gap 0.3s; }
+  .read-link:hover { gap:20px; }
+
+  /* GRILLE ARTICLES */
+  .articles-section { padding:80px 80px 100px; }
+  .articles-header { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:56px; }
+  .articles-title { font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:300; color:var(--dark); }
+  .articles-title em { font-style:italic; color:var(--gold); }
+  .articles-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:40px; }
+
+  .article-card { cursor:pointer; }
+  .article-img { height:300px; overflow:hidden; margin-bottom:24px; position:relative; }
+  .article-img-bg { width:100%; height:100%; background-size:cover; background-position:center; background-repeat:no-repeat; background-color:#C8BEB0; transition:transform 0.7s ease; }
+  .article-card:hover .article-img-bg { transform:scale(1.04); }
+  .article-cat { font-size:9px; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; display:flex; align-items:center; gap:8px; }
+  .article-cat::before { content:''; display:block; width:20px; height:1px; background:var(--gold); }
+  .article-title { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:300; color:var(--dark); line-height:1.3; margin-bottom:12px; }
+  .article-title em { font-style:italic; }
+  .article-excerpt { font-size:13px; line-height:1.85; color:#6A5A4A; margin-bottom:16px; }
+  .article-footer { display:flex; justify-content:space-between; align-items:center; padding-top:16px; border-top:1px solid var(--line); }
+  .article-date { font-size:10px; letter-spacing:0.15em; color:#8A7A5A; }
+  .article-arrow { font-size:14px; color:var(--gold); transition:transform 0.3s; }
+  .article-card:hover .article-arrow { transform:translateX(4px); }
+
+  /* NEWSLETTER BAND */
+  .nl-band { background:var(--dark); padding:72px 80px; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+  .nl-title { font-family:'Cormorant Garamond',serif; font-size:40px; font-weight:300; color:#fff; line-height:1.2; }
+  .nl-title em { font-style:italic; color:rgba(247,242,238,0.4); }
+  .nl-sub { margin-top:12px; font-size:13px; color:rgba(255,255,255,0.35); line-height:1.8; }
+  .nl-form { display:flex; flex-direction:column; gap:16px; }
+  .nl-input { background:transparent; border:none; border-bottom:1px solid rgba(184,151,106,0.35); outline:none; font-family:'Jost',sans-serif; font-size:13px; color:#fff; padding:12px 0; }
+  .nl-input::placeholder { color:rgba(255,255,255,0.2); }
+  .nl-btn { align-self:flex-start; background:var(--gold); border:none; cursor:pointer; font-family:'Jost',sans-serif; font-size:10px; letter-spacing:0.3em; text-transform:uppercase; color:#fff; padding:14px 32px; transition:background 0.3s; }
+  .nl-btn:hover { background:#a47f58; }
+  .nl-note { font-size:10px; color:rgba(255,255,255,0.2); letter-spacing:0.1em; }
+
+  /* TOPICS */
+  .topics { padding:80px; border-bottom:1px solid var(--line); }
+  .topics-label { font-size:10px; letter-spacing:0.35em; text-transform:uppercase; color:var(--gold); margin-bottom:32px; }
+  .topics-grid { display:flex; flex-wrap:wrap; gap:12px; }
+  .topic-tag { font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:var(--text); border:1px solid var(--line); padding:10px 20px; cursor:pointer; transition:all 0.3s; text-decoration:none; }
+  .topic-tag:hover { background:var(--dark); color:#fff; border-color:var(--dark); }
+
+  footer { background:var(--dark); padding:56px 80px; display:flex; justify-content:space-between; align-items:center; }
+  .footer-logo { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; letter-spacing:0.3em; text-transform:uppercase; color:#fff; }
+  .footer-logo span { color:var(--gold); }
+  .footer-text { font-size:11px; color:rgba(247,242,238,0.3); letter-spacing:0.1em; margin-top:6px; }
+  .footer-nav { display:flex; gap:24px; }
+  .footer-nav a { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(247,242,238,0.4); text-decoration:none; transition:color 0.3s; }
+  .footer-nav a:hover { color:#fff; }
+
+  .fade-in { opacity:0; transform:translateY(24px); transition:opacity 0.8s ease, transform 0.8s ease; }
+  .fade-in.visible { opacity:1; transform:none; }
+
+  @media (max-width:768px) {
+    header { padding:16px 24px; } nav { display:none; }
+    .page-hero { padding:120px 24px 60px; }
+    .featured { grid-template-columns:1fr; }
+    .featured-img { height:280px; }
+    .featured-content { padding:40px 24px; }
+    .articles-section { padding:48px 24px 60px; }
+    .articles-grid { grid-template-columns:1fr; }
+    .nl-band { grid-template-columns:1fr; padding:48px 24px; gap:32px; }
+    .topics { padding:48px 24px; }
+    footer { flex-direction:column; gap:24px; text-align:center; padding:40px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">AUR<span>E</span>A</a>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="couleurs.html">Couleurs</a>
+    <a href="inspirations.html" class="active">Inspirations</a>
+    <a href="selection.html">Sélection</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-label">Tendances · Conseils · Décryptages</div>
+  <h1 class="page-hero-title">Inspirations<br><em>&amp; Tendances</em></h1>
+  <p class="page-hero-sub">Analyses couleur, associations de matières, erreurs à éviter — tout ce qu'il faut savoir pour décorer avec justesse.</p>
+  <div class="article-count"></div>
+</div>
+
+<!-- ARTICLE FEATURED -->
+<div class="featured fade-in">
+  <!-- PHOTO : paille_salon_full.png ou n'importe quelle belle photo de salon -->
+  <div class="featured-img">
+    <div class="featured-img-overlay"></div>
+    <div class="featured-tag">À la une</div>
+  </div>
+  <div class="featured-content">
+    <div class="featured-eyebrow">Tendances · Mars 2026</div>
+    <h2 class="featured-title">Les 5 couleurs qui dominent<br>la déco <em>en 2026</em></h2>
+    <p class="featured-excerpt">Le grège cède progressivement sa place aux tons plus affirmés — vert bouteille, terracotta profond, bleu nuit. Mais une couleur s'impose comme la vraie surprise de l'année : le jaune paille, discret et lumineux, envahit les salons les plus élégants.</p>
+    <div class="featured-meta">
+      <div class="featured-meta-item"><span>→</span> 5 min de lecture</div>
+      <div class="featured-meta-item"><span>→</span> Tendances 2026</div>
+    </div>
+    <a href="article-couleurs-2026.html" class="read-link">Lire l'article →</a>
+  </div>
+</div>
+
+<!-- GRILLE 3 ARTICLES -->
+<section class="articles-section fade-in">
+  <div class="articles-header">
+    <h2 class="articles-title">Derniers <em>articles</em></h2>
+  </div>
+  <div class="articles-grid">
+
+    <!-- ARTICLE PÂQUES — Avril 2026 -->
+    <div class="article-card" onclick="location.href='article-paques-2026-retravaille.html'">
+      <div class="article-img">
+        <div class="article-img-bg" style="background-image:url('jardin_table_lavande.png'); background-color:#D8D0C0;"></div>
+        <div style="position:absolute;top:12px;left:12px;background:#7A9A6A;padding:5px 12px;font-size:8px;letter-spacing:0.3em;text-transform:uppercase;color:#fff;font-family:'Jost',sans-serif;">Saisonnier · Pâques</div>
+      </div>
+      <div class="article-cat">Décoration saisonnière</div>
+      <h3 class="article-title">5 idées déco pour une Pâques<br><em>naturelle et élégante</em></h3>
+      <p class="article-excerpt">Lin, osier, céramique et fleurs simples — une Pâques sans le folklorique, avec l'élégance d'une maison de campagne en fleurs. Rattaché à la palette Jardin Rustique.</p>
+      <div class="article-footer">
+        <span class="article-date">Avril 2026</span>
+        <span class="article-arrow">→</span>
+      </div>
+    </div>
+
+    <!-- ARTICLE 2 -->
+    <div class="article-card" onclick="location.href='article-matieres.html'">
+      <div class="article-img">
+        <div class="article-img-bg" style="background-image:url('grege_mood_matiere.png')"></div>
+      </div>
+      <div class="article-cat">Matières</div>
+      <h3 class="article-title">Lin, velours, marbre :<br><em>mixer sans se tromper</em></h3>
+      <p class="article-excerpt">Trois règles simples pour associer les matières dans un même espace sans créer de confusion visuelle — et les combinaisons qui fonctionnent à tous les coups.</p>
+      <div class="article-footer">
+        <span class="article-date">Février 2026</span>
+        <span class="article-arrow">→</span>
+      </div>
+    </div>
+
+    <!-- ARTICLE 3 -->
+    <div class="article-card" onclick="location.href='article-salon-inacheve.html'">
+      <div class="article-img">
+        <div class="article-img-bg" style="background-image:url('grege_salon_full.png')"></div>
+      </div>
+      <div class="article-cat">Conseils</div>
+      <h3 class="article-title">Pourquoi votre salon semble<br><em>toujours inachevé</em></h3>
+      <p class="article-excerpt">Ce n'est pas une question de budget ni de taille. Les salons qui semblent incomplets partagent presque toujours les mêmes 4 erreurs — et elles sont faciles à corriger.</p>
+      <div class="article-footer">
+        <span class="article-date">Janvier 2026</span>
+        <span class="article-arrow">→</span>
+      </div>
+    </div>
+
+    <!-- ARTICLE 4 -->
+    <div class="article-card" onclick="location.href='article-exposition.html'">
+      <div class="article-img">
+        <div class="article-img-bg" style="background-image:url('fenetre%20et%20lumiere.png')"></div>
+      </div>
+      <div class="article-cat">Guide pratique</div>
+      <h3 class="article-title">Quelle palette selon<br><em>l'exposition de votre pièce</em></h3>
+      <p class="article-excerpt">Nord, sud, est, ouest — l'exposition d'une pièce change tout. Une couleur qui rayonne au sud peut sembler terne au nord. Le guide complet pour ne plus se tromper.</p>
+      <div class="article-footer">
+        <span class="article-date">Décembre 2025</span>
+        <span class="article-arrow">→</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TOPICS -->
+<div class="topics fade-in">
+  <div class="topics-label">Explorer par thème</div>
+  <div class="topics-grid">
+    <a href="couleurs.html" class="topic-tag">Palettes couleur</a>
+    <a href="#" class="topic-tag">Déco saisonnière</a>
+    <a href="#" class="topic-tag">Matières & Textures</a>
+    <a href="#" class="topic-tag">Tendances 2026</a>
+    <a href="#" class="topic-tag">Conseils salon</a>
+    <a href="#" class="topic-tag">Conseils chambre</a>
+    <a href="#" class="topic-tag">Erreurs à éviter</a>
+    <a href="#" class="topic-tag">Guides pratiques</a>
+    <a href="#" class="topic-tag">Sélections produits</a>
+  </div>
+</div>
+
+<!-- NEWSLETTER -->
+<div class="nl-band fade-in">
+  <div>
+    <h2 class="nl-title">Les tendances,<br><em>avant tout le monde</em></h2>
+    <p class="nl-sub">Chaque mois : une analyse couleur, un article conseil et une sélection de produits — directement dans votre boîte mail.</p>
+  </div>
+  <div class="nl-form">
+    <input class="nl-input" type="text" placeholder="Votre prénom" />
+    <input class="nl-input" type="email" placeholder="Votre adresse e-mail" />
+    <button class="nl-btn">S'inscrire à la newsletter</button>
+    <span class="nl-note">Aucun spam · Désinscription en 1 clic</span>
+  </div>
+</div>
+
+<footer>
+  <div>
+    <div class="footer-logo">AUR<span>E</span>A</div>
+    <div class="footer-text">Décoration intérieure · Couleur · Tendances</div>
+  </div>
+  <div class="footer-nav">
+    <a href="#">Pinterest</a>
+    <a href="#">Contact</a>
+    <a href="#">Mentions légales</a>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

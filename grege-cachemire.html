@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-30LC353DER"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-30LC353DER");
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grège & Cachemire — AUREA</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  :root { --grege:#B8A898; --deep:#3A2E28; --cachemire:#D4C4B0; --cream:#F0EAE0; --warm:#8A7868; --dark:#2A221E; --text:#4A3E38; --gold:#B8976A; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Jost',sans-serif; font-weight:300; background:#FAF7F4; color:var(--text); overflow-x:hidden; }
+
+  header { position:fixed; top:0; left:0; right:0; z-index:100; padding:20px 48px; display:flex; justify-content:space-between; align-items:center; background:rgba(250,247,244,0.92); backdrop-filter:blur(12px); border-bottom:1px solid rgba(184,168,152,0.25); }
+  .logo { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:300; letter-spacing:0.4em; text-transform:uppercase; color:var(--dark); text-decoration:none; }
+  .logo span { color:var(--gold); }
+  nav { display:flex; gap:32px; }
+  nav a { font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--grege); text-decoration:none; transition:color 0.3s; }
+  nav a:hover { color:var(--deep); }
+  .nav-back { font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:var(--grege); text-decoration:none; transition:color 0.3s; }
+  .nav-back:hover { color:var(--dark); }
+
+  /* HERO */
+  .hero { height:100vh; position:relative; display:flex; flex-direction:column; justify-content:flex-end; overflow:hidden; }
+  .hero-bg { position:absolute; inset:0; background:url('grege_salon_hero.png') center/cover no-repeat; background-color:#C8BEB0; }
+  .hero-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(42,34,30,0.82) 0%, rgba(42,34,30,0.15) 55%, rgba(42,34,30,0.02) 100%); }
+  .hero-content { position:relative; z-index:2; padding:0 80px 72px; }
+  .hero-tag { display:inline-block; font-size:10px; letter-spacing:0.3em; text-transform:uppercase; color:var(--cachemire); margin-bottom:20px; border-left:2px solid var(--gold); padding-left:16px; }
+  .hero-title { font-family:'Cormorant Garamond',serif; font-size:clamp(48px,7vw,96px); font-weight:300; line-height:1.0; color:#fff; max-width:700px; }
+  .hero-title em { font-style:italic; color:var(--cachemire); }
+  .hero-sub { margin-top:24px; font-size:13px; color:rgba(255,255,255,0.5); max-width:440px; line-height:1.85; }
+  .hero-scroll { position:absolute; right:48px; bottom:96px; z-index:10; display:flex; flex-direction:column; align-items:center; gap:12px; color:rgba(255,255,255,0.4); font-size:10px; letter-spacing:0.2em; text-transform:uppercase; }
+  .hero-scroll::after { content:''; display:block; width:1px; height:60px; background:linear-gradient(to bottom,rgba(255,255,255,0.5),transparent); animation:scrollLine 2s ease-in-out infinite; }
+  @keyframes scrollLine { 0%,100%{opacity:0.4} 50%{opacity:1} }
+
+  .hero-nl { position:relative; z-index:20; background:rgba(184,168,152,0.12); border-top:1px solid rgba(184,168,152,0.30); backdrop-filter:blur(10px); }
+  .hero-nl-inner { display:flex; align-items:center; gap:20px; padding:13px 52px; }
+  .hero-nl-tag { font-size:9px; letter-spacing:0.4em; text-transform:uppercase; color:var(--gold); border:1px solid rgba(184,151,106,0.35); padding:5px 12px; white-space:nowrap; flex-shrink:0; }
+  .hero-nl-text { font-size:12px; color:rgba(255,255,255,0.45); flex:1; }
+  .hero-nl-form { display:flex; align-items:center; border:1px solid rgba(184,151,106,0.28); flex-shrink:0; }
+  .hero-nl-input { background:transparent; border:none; outline:none; font-family:'Jost',sans-serif; font-size:12px; color:#fff; padding:10px 16px; width:210px; }
+  .hero-nl-input::placeholder { color:rgba(255,255,255,0.22); }
+  .hero-nl-btn { background:var(--gold); border:none; cursor:pointer; font-family:'Jost',sans-serif; font-size:10px; letter-spacing:0.25em; text-transform:uppercase; color:#fff; padding:10px 18px; white-space:nowrap; transition:background 0.3s; }
+  .hero-nl-btn:hover { background:#a47f58; }
+  .hero-nl-close { background:transparent; border:none; cursor:pointer; color:rgba(255,255,255,0.22); font-size:12px; padding:4px 0 4px 8px; }
+
+  section { padding:100px 80px; }
+  .section-label { font-size:10px; letter-spacing:0.35em; text-transform:uppercase; color:var(--gold); margin-bottom:16px; }
+  .section-title { font-family:'Cormorant Garamond',serif; font-size:clamp(32px,4vw,52px); font-weight:300; color:var(--dark); line-height:1.2; margin-bottom:40px; }
+  .section-title em { font-style:italic; color:var(--grege); }
+
+  /* INTRO */
+  .intro { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; background:#FAF7F4; }
+  .intro-text p { font-size:15px; line-height:2.0; color:var(--text); margin-bottom:20px; }
+  .intro-text p:first-of-type { font-family:'Cormorant Garamond',serif; font-size:21px; font-style:italic; color:var(--deep); line-height:1.7; }
+  /* PHOTO : salon ou chambre grège vue large, lumière naturelle douce, tons beige/lin */
+  .intro-visual { height:520px; background:url('grege_intro_salon.png') center/cover no-repeat; background-color:#C8BEB0; }
+
+  /* MOODBOARD */
+  .moodboard { background:var(--dark); }
+  .moodboard .section-title { color:#fff; }
+  .moodboard .section-label { color:var(--cachemire); }
+  .moodboard-intro { font-size:14px; color:rgba(212,196,176,0.6); max-width:600px; margin-bottom:56px; line-height:1.9; }
+  .moodboard-grid { display:grid; grid-template-columns:repeat(12,1fr); grid-template-rows:300px 300px; gap:10px; }
+  .mood-item { overflow:hidden; position:relative; background-size:cover; background-position:center; background-repeat:no-repeat; background-color:#8A7868; transition:transform 0.7s ease; }
+  .mood-item:nth-child(1) { grid-column:1/6; grid-row:1/2; }
+  .mood-item:nth-child(2) { grid-column:6/9; grid-row:1/2; }
+  .mood-item:nth-child(3) { grid-column:9/13; grid-row:1/3; }
+  .mood-item:nth-child(4) { grid-column:1/4; grid-row:2/3; }
+  .mood-item:nth-child(5) { grid-column:4/9; grid-row:2/3; }
+  .mood-item:hover { transform:scale(1.02); }
+  .mood-label { position:absolute; bottom:14px; left:14px; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.9); background:rgba(42,34,30,0.6); backdrop-filter:blur(4px); padding:6px 12px; }
+
+  /* PALETTE */
+  .palette-section { background:#F5EFE8; }
+  .palette-grid { display:grid; grid-template-columns:repeat(5,1fr); height:200px; overflow:hidden; margin-bottom:32px; }
+  .palette-swatch { position:relative; cursor:pointer; transition:transform 0.3s; }
+  .palette-swatch:hover { transform:scaleY(1.05); z-index:2; }
+  .sw1{background:#2A221E} .sw2{background:#5A4A3A} .sw3{background:#8A7868} .sw4{background:#B8A898} .sw5{background:#F0EAE0}
+  .swatch-info { position:absolute; bottom:0; left:0; right:0; padding:12px; text-align:center; background:rgba(0,0,0,0.22); }
+  .swatch-name { font-size:10px; letter-spacing:0.15em; color:rgba(255,255,255,0.9); text-transform:uppercase; display:block; }
+  .swatch-hex { font-size:9px; color:rgba(255,255,255,0.55); display:block; margin-top:2px; }
+
+  /* ROOMS */
+  .rooms { background:#FAF7F4; }
+  .rooms-grid { display:grid; grid-template-columns:1fr 1fr; gap:56px; margin-top:56px; }
+  .room-photo { height:400px; margin-bottom:24px; background-size:cover; background-position:center; background-repeat:no-repeat; background-color:#C8BEB0; transition:transform 0.7s ease; }
+  .room-card:hover .room-photo { transform:scale(1.02); }
+  .room-title { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; color:var(--dark); margin-bottom:12px; }
+  .room-desc { font-size:14px; line-height:1.9; color:var(--text); }
+  .room-full { grid-column:1/-1; display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
+  .room-full .room-photo { height:500px; margin-bottom:0; }
+
+  /* PRODUCTS */
+  .products { background:var(--dark); }
+  .products .section-title { color:#fff; }
+  .products .section-label { color:var(--cachemire); }
+  .products-intro { font-size:14px; color:rgba(212,196,176,0.6); max-width:500px; margin-bottom:56px; line-height:1.9; }
+  .products-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; }
+  .product-card { overflow:hidden; cursor:pointer; transition:transform 0.4s; }
+  .product-card:hover { transform:scale(0.985); }
+  .product-img { height:340px; background-size:cover; background-position:center; background-repeat:no-repeat; background-color:#5A4A3A; transition:transform 0.7s ease; }
+  .product-card:hover .product-img { transform:scale(1.03); }
+  .product-info { padding:20px 0 8px; border-top:1px solid rgba(212,196,176,0.12); }
+  .product-cat { font-size:9px; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:6px; }
+  .product-name { font-family:'Cormorant Garamond',serif; font-size:19px; color:#fff; margin-bottom:6px; }
+  .product-desc { font-size:12px; color:rgba(212,196,176,0.48); line-height:1.7; margin-bottom:12px; }
+  .product-link { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--cachemire); text-decoration:none; border-bottom:1px solid rgba(212,196,176,0.25); padding-bottom:2px; }
+  .product-link:hover { color:var(--gold); }
+
+  /* TIPS */
+  .tips { background:#EDE8E0; }
+  .tips-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:40px; margin-top:48px; }
+  .tip-card { padding:40px 32px; background:rgba(255,255,255,0.55); }
+  .tip-number { font-family:'Cormorant Garamond',serif; font-size:64px; font-weight:300; color:rgba(184,168,152,0.25); line-height:1; margin-bottom:16px; }
+  .tip-title { font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:var(--deep); margin-bottom:12px; }
+  .tip-text { font-size:14px; line-height:1.9; color:var(--text); }
+
+  footer { background:var(--dark); padding:56px 80px; display:flex; justify-content:space-between; align-items:center; }
+  .footer-logo { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; letter-spacing:0.3em; text-transform:uppercase; color:#fff; }
+  .footer-logo span { color:var(--gold); }
+  .footer-text { font-size:11px; color:rgba(212,196,176,0.35); letter-spacing:0.1em; margin-top:6px; }
+  .footer-nav { display:flex; gap:24px; }
+  .footer-nav a { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(212,196,176,0.45); text-decoration:none; transition:color 0.3s; }
+  .footer-nav a:hover { color:#fff; }
+
+  .fade-in { opacity:0; transform:translateY(28px); transition:opacity 0.85s ease, transform 0.85s ease; }
+  .fade-in.visible { opacity:1; transform:none; }
+
+  @media (max-width:768px) {
+    header { padding:16px 24px; } nav { display:none; } section { padding:64px 24px; }
+    .hero-content { padding:0 24px 64px; } .hero-scroll { display:none; }
+    .hero-nl-inner { flex-wrap:wrap; padding:12px 24px; gap:12px; }
+    .hero-nl-text { display:none; } .hero-nl-input { width:150px; }
+    .intro { grid-template-columns:1fr; } .intro-visual { height:300px; }
+    .moodboard-grid { grid-template-columns:1fr 1fr; grid-template-rows:auto; }
+    .mood-item { grid-column:auto !important; grid-row:auto !important; height:200px; }
+    .rooms-grid { grid-template-columns:1fr; }
+    .room-full { grid-template-columns:1fr; } .room-full .room-photo { height:280px; }
+    .products-grid { grid-template-columns:1fr; } .tips-grid { grid-template-columns:1fr; }
+    footer { flex-direction:column; gap:24px; text-align:center; padding:40px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">AUR<span>E</span>A</a>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="couleurs.html">Couleurs</a>
+    <a href="#">Inspirations</a>
+    <a href="#">Sélection</a>
+  </nav>
+  <a href="couleurs.html" class="nav-back">← Toutes les couleurs</a>
+</header>
+
+<!-- HERO — PHOTO : grand salon grège, canapé lin naturel, lumière rasante dorée, ambiance minimaliste luxueuse -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Tendance couleur · Toutes saisons · Palette neutre</div>
+    <h1 class="hero-title">Grège<br><em>&amp; Cachemire</em></h1>
+    <p class="hero-sub">Du brun clair au beige chaud — la palette la plus élégante et la plus intemporelle de la décoration intérieure contemporaine.</p>
+  </div>
+  <div class="hero-nl" id="hero-nl">
+    <div class="hero-nl-inner">
+      <div class="hero-nl-tag">Newsletter</div>
+      <p class="hero-nl-text">Nouvelles palettes, tendances et sélections produits — chaque mois dans votre boîte mail.</p>
+      <div class="hero-nl-form">
+        <input class="hero-nl-input" type="email" placeholder="Votre adresse e-mail" />
+        <button class="hero-nl-btn">S'inscrire</button>
+      </div>
+      <button class="hero-nl-close" onclick="document.getElementById('hero-nl').style.display='none'">✕</button>
+    </div>
+  </div>
+  <div class="hero-scroll">Découvrir</div>
+</section>
+
+<!-- INTRO — PHOTO : grege_intro_salon.png — salon épuré, tons lin et sable, lumière naturelle fenêtre -->
+<section class="intro fade-in">
+  <div class="intro-text">
+    <div class="section-label">L'Essentiel</div>
+    <h2 class="section-title">La couleur qui <em>ne se démode jamais</em></h2>
+    <p>Le grège est la fusion du gris et du beige — une teinte neutre qui absorbe la lumière naturelle et crée une atmosphère d'une douceur incomparable. Son nom vient du fil de soie brut, non teint.</p>
+    <p>Associé au cachemire, au lin naturel, au chêne clair et au laiton brossé, il définit l'esthétique du luxe discret : des intérieurs qui n'ont pas besoin de se justifier.</p>
+    <p>Les matières qui l'accompagnent le mieux : cachemire, lin lavé, chêne naturel, travertin, laiton mat.</p>
+  </div>
+  <div class="intro-visual"></div>
+</section>
+
+<!-- MOODBOARD -->
+<section class="moodboard fade-in">
+  <div class="section-label">Moodboard</div>
+  <h2 class="section-title">L'univers <em>Grège &amp; Cachemire</em></h2>
+  <p class="moodboard-intro">Cinq visuels pour saisir l'essence de la palette — du salon minimaliste aux détails textiles qui font toute la différence.</p>
+  <div class="moodboard-grid">
+    <!-- PHOTO 1 : grege_mood_salon.png — salon grège minimaliste, canapé lin, table basse travertin, grande fenêtre -->
+    <div class="mood-item" style="background-image:url('grege_mood_salon.png')"><span class="mood-label">Salon</span></div>
+    <!-- PHOTO 2 : grege_mood_textile.png — gros plan sur un plaid cachemire beige plié sur un fauteuil -->
+    <div class="mood-item" style="background-image:url('grege_mood_textile.png')"><span class="mood-label">Textile</span></div>
+    <!-- PHOTO 3 : grege_mood_matiere.png — flat lay : travertin, lin, laiton, cachemire, bois clair -->
+    <div class="mood-item" style="background-image:url('grege_mood_matiere.png')"><span class="mood-label">Matières</span></div>
+    <!-- PHOTO 4 : grege_mood_detail.png — détail déco : vase travertin, branche séchée, bougie ivoire -->
+    <div class="mood-item" style="background-image:url('grege_mood_detail.png')"><span class="mood-label">Détails</span></div>
+    <!-- PHOTO 5 : grege_mood_chambre.png — chambre grège, tête de lit lin, linge blanc ivoire, lumière dorée -->
+    <div class="mood-item" style="background-image:url('grege_mood_chambre.png')"><span class="mood-label">Chambre</span></div>
+  </div>
+</section>
+
+<!-- PALETTE -->
+<section class="palette-section fade-in">
+  <div class="section-label">La Palette</div>
+  <h2 class="section-title">Cinq nuances, <em>une harmonie</em></h2>
+  <div class="palette-grid">
+    <div class="palette-swatch sw1"><div class="swatch-info"><span class="swatch-name">Brun Profond</span><span class="swatch-hex">#2A221E</span></div></div>
+    <div class="palette-swatch sw2"><div class="swatch-info"><span class="swatch-name">Grège Foncé</span><span class="swatch-hex">#5A4A3A</span></div></div>
+    <div class="palette-swatch sw3"><div class="swatch-info"><span class="swatch-name">Grège</span><span class="swatch-hex">#8A7868</span></div></div>
+    <div class="palette-swatch sw4"><div class="swatch-info"><span class="swatch-name">Cachemire</span><span class="swatch-hex">#B8A898</span></div></div>
+    <div class="palette-swatch sw5"><div class="swatch-info"><span class="swatch-name">Crème Ivoire</span><span class="swatch-hex">#F0EAE0</span></div></div>
+  </div>
+  <p style="font-size:13px;color:var(--deep);line-height:1.95;max-width:600px;">Le grège (#8A7868) est la nuance pivot — ni trop chaud ni trop froid, il s'adapte à toutes les expositions lumineuses. En été il devient sable clair, en hiver il prend des reflets brun doux.</p>
+</section>
+
+<!-- ROOMS -->
+<section class="rooms fade-in">
+  <div class="section-label">Pièce par pièce</div>
+  <h2 class="section-title">La palette <em>dans chaque espace</em></h2>
+  <div class="rooms-grid">
+    <div class="room-card">
+      <!-- PHOTO : grege_chambre.png — chambre minimaliste grège, tête de lit capitonnée lin naturel, coussins cachemire, lampe laiton -->
+      <div class="room-photo" style="background-image:url('grege_chambre.png')"></div>
+      <h3 class="room-title">La Chambre</h3>
+      <p class="room-desc">Tête de lit lin naturel, parure coton percale ivoire, plaid cachemire beige. Les luminaires laiton brossé apportent la chaleur dorée qui sublime chaque nuance de la palette.</p>
+    </div>
+    <div class="room-card">
+      <!-- PHOTO : grege_salle_de_bain.png — salle de bain travertin, robinetterie laiton, serviettes lin naturel, bougies ivoire -->
+      <div class="room-photo" style="background-image:url('grege_salle_de_bain.png')"></div>
+      <h3 class="room-title">La Salle de Bain</h3>
+      <p class="room-desc">Travertin beige, robinetterie laiton brossé, serviettes lin épais. La salle de bain grège est le territoire du luxe minimaliste — chaque matière compte, rien n'est superflu.</p>
+    </div>
+    <div class="room-full">
+      <!-- PHOTO : grege_salon_full.png — salon grège vue large, canapé modulable lin, table travertin ronde, suspension rotin, art mural abstrait tons neutres -->
+      <div class="room-photo" style="background-image:url('grege_salon_full.png')"></div>
+      <div>
+        <h3 class="room-title">Le Salon</h3>
+        <p class="room-desc" style="margin-bottom:18px;">Canapé modulable lin grège, table basse travertin, suspension rotin naturel. Le salon grège n'a pas besoin d'accent coloré — il tire sa richesse de la superposition des textures.</p>
+        <p class="room-desc">La règle : jamais une surface lisse seule. Toujours associer tissé, minéral et bois pour que la palette exprime toute sa profondeur.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products fade-in">
+  <div class="section-label">Sélection</div>
+  <h2 class="section-title">Les pièces <em>qui font la différence</em></h2>
+  <p class="products-intro">Six objets et textiles pour adopter la palette Grège &amp; Cachemire — des basiques intemporels aux pièces signatures.</p>
+  <div class="products-grid">
+    <div class="product-card">
+      <!-- PHOTO : grege_produit_plaid.png — plaid cachemire beige plié, fond neutre, lumière douce -->
+      <div class="product-img" style="background-image:url('grege_produit_plaid.png')"></div>
+      <div class="product-info">
+        <div class="product-cat">Textile · Salon</div>
+        <div class="product-name">Plaid Cachemire Naturel</div>
+        <div class="product-desc">100% cachemire, ton ivoire naturel. La pièce textile signature — posé sur un canapé lin, il suffit à transformer l'ambiance d'un salon.</div>
+        <a href="#" class="product-link">[Lien affilié à ajouter]</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <!-- PHOTO : grege_produit_vase.png — vase travertin ou céramique beige mat, branche séchée, fond neutre -->
+      <div class="product-img" style="background-image:url('grege_produit_vase.png')"></div>
+      <div class="product-info">
+        <div class="product-cat">Décoration · Minéral</div>
+        <div class="product-name">Vase Travertin</div>
+        <div class="product-desc">Travertin beige veiné, forme cylindrique. La pièce minérale qui ancre toute la palette — sobre, intemporelle, d'une élégance naturelle.</div>
+        <a href="#" class="product-link">[Lien affilié à ajouter]</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <!-- PHOTO : grege_produit_bougie.png — bougie pilier ivoire sur plateau laiton, fond grège -->
+      <div class="product-img" style="background-image:url('grege_produit_bougie.png')"></div>
+      <div class="product-info">
+        <div class="product-cat">Ambiance · Bougie</div>
+        <div class="product-name">Bougie Cire Naturelle Ivoire</div>
+        <div class="product-desc">Cire de soja ivoire, contenant verre dépoli, parfum bois de santal et musc blanc. La lumière dorée qui sublime tous les tons neutres.</div>
+        <a href="#" class="product-link">[Lien affilié à ajouter]</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <!-- PHOTO : grege_produit_coussin.png — coussin lin naturel brut, couture apparente, fond canapé grège -->
+      <div class="product-img" style="background-image:url('grege_produit_coussin.png')"></div>
+      <div class="product-info">
+        <div class="product-cat">Textile · Coussin</div>
+        <div class="product-name">Coussin Lin Brut</div>
+        <div class="product-desc">Lin lavé non teint, coutures apparentes. La texture naturelle qui donne de l'âme à un canapé — à associer avec un coussin cachemire pour l'équilibre parfait.</div>
+        <a href="#" class="product-link">[Lien affilié à ajouter]</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <!-- PHOTO : grege_produit_lampe.png — lampe de table base laiton brossé, abat-jour lin beige, fond neutre -->
+      <div class="product-img" style="background-image:url('grege_produit_lampe.png')"></div>
+      <div class="product-info">
+        <div class="product-cat">Luminaire · Chambre</div>
+        <div class="product-name">Lampe Laiton &amp; Lin</div>
+        <div class="product-desc">Base laiton brossé, abat-jour lin naturel. Une lumière tamisée et dorée qui révèle toute la richesse des tons grège au coucher du soleil.</div>
+        <a href="#" class="product-link">[Lien affilié à ajouter]</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <!-- PHOTO : grege_produit_parure.png — parure de lit percale coton ivoire, plis naturels, lumière douce -->
+      <div class="product-img" style="background-image:url('grege_produit_parure.png')"></div>
+      <div class="product-info">
+        <div class="product-cat">Textile · Chambre</div>
+        <div class="product-name">Parure Percale Ivoire</div>
+        <div class="product-desc">Percale de coton 200 fils, ton ivoire naturel. La base textile indispensable d'une chambre grège — douce au toucher, élégante au regard.</div>
+        <a href="#" class="product-link">[Lien affilié à ajouter]</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIPS -->
+<section class="tips fade-in">
+  <div class="section-label">Les Règles d'Or</div>
+  <h2 class="section-title">Adopter le Grège <em>sans se tromper</em></h2>
+  <div class="tips-grid">
+    <div class="tip-card">
+      <div class="tip-number">01</div>
+      <div class="tip-title">Jouer sur les textures</div>
+      <p class="tip-text">Le grège est une palette monochrome — sa richesse vient exclusivement des textures. Associez toujours au minimum trois matières différentes : tissé, minéral et bois. Sans cette superposition, l'espace paraît plat.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-number">02</div>
+      <div class="tip-title">Choisir le bon blanc</div>
+      <p class="tip-text">Avec le grège, les blancs froids (bleutés) créent une dissonance. Optez pour des blancs chauds — ivoire, écru, blanc cassé. Ce détail fait toute la différence entre un intérieur harmonieux et un espace qui "cloche".</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-number">03</div>
+      <div class="tip-title">Un seul métal, partout</div>
+      <p class="tip-text">Laiton brossé, bronze mat ou or rose — choisissez un seul métal et déclinez-le sur tous vos accessoires. La cohérence métallique unifie la palette et lui donne ce caractère luxueux qui semble naturel.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <div class="footer-logo">AUR<span>E</span>A</div>
+    <div class="footer-text">Décoration intérieure · Couleur · Tendances</div>
+  </div>
+  <div class="footer-nav">
+    <a href="#">Pinterest</a>
+    <a href="#">Contact</a>
+    <a href="#">Mentions légales</a>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

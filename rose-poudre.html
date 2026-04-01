@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-30LC353DER"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-30LC353DER");
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rose Poudré & Nude — AUREA</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  :root { --rose:#C4909A; --deep:#6A2A3A; --nude:#D4B4A8; --cream:#F0E8E0; --blush:#E8C8C0; --dark:#2A1A1E; --text:#4A2A32; --gold:#B8976A; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Jost',sans-serif; font-weight:300; background:#FAF5F3; color:var(--text); overflow-x:hidden; }
+
+  header { position:fixed; top:0; left:0; right:0; z-index:100; padding:20px 48px; display:flex; justify-content:space-between; align-items:center; background:rgba(250,245,243,0.92); backdrop-filter:blur(12px); border-bottom:1px solid rgba(196,144,154,0.25); }
+  .logo { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:300; letter-spacing:0.4em; text-transform:uppercase; color:var(--dark); text-decoration:none; }
+  .logo span { color:var(--gold); }
+  nav { display:flex; gap:32px; }
+  nav a { font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--rose); text-decoration:none; transition:color 0.3s; }
+  nav a:hover { color:var(--deep); }
+  .nav-back { font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:var(--rose); text-decoration:none; transition:color 0.3s; }
+  .nav-back:hover { color:var(--dark); }
+
+  .hero { height:100vh; position:relative; display:flex; flex-direction:column; justify-content:flex-end; overflow:hidden; }
+  .hero-bg { position:absolute; inset:0; background:url('Salon rose poudre.png') center/cover no-repeat; }
+  .hero-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(42,26,30,0.80) 0%, rgba(42,26,30,0.15) 55%, rgba(42,26,30,0.02) 100%); }
+  .hero-content { position:relative; z-index:2; padding:0 80px 72px; }
+  .hero-tag { display:inline-block; font-size:10px; letter-spacing:0.3em; text-transform:uppercase; color:var(--blush); margin-bottom:20px; border-left:2px solid var(--gold); padding-left:16px; }
+  .hero-title { font-family:'Cormorant Garamond',serif; font-size:clamp(48px,7vw,96px); font-weight:300; line-height:1.0; color:#fff; max-width:700px; }
+  .hero-title em { font-style:italic; color:var(--blush); }
+  .hero-sub { margin-top:24px; font-size:13px; color:rgba(255,255,255,0.5); max-width:440px; line-height:1.85; }
+  .hero-scroll { position:absolute; right:48px; bottom:96px; z-index:10; display:flex; flex-direction:column; align-items:center; gap:12px; color:rgba(255,255,255,0.4); font-size:10px; letter-spacing:0.2em; text-transform:uppercase; }
+  .hero-scroll::after { content:''; display:block; width:1px; height:60px; background:linear-gradient(to bottom,rgba(255,255,255,0.5),transparent); animation:scrollLine 2s ease-in-out infinite; }
+  @keyframes scrollLine { 0%,100%{opacity:0.4} 50%{opacity:1} }
+
+  .hero-nl { position:relative; z-index:20; background:rgba(196,144,154,0.12); border-top:1px solid rgba(196,144,154,0.30); backdrop-filter:blur(10px); }
+  .hero-nl-inner { display:flex; align-items:center; gap:20px; padding:13px 52px; }
+  .hero-nl-tag { font-size:9px; letter-spacing:0.4em; text-transform:uppercase; color:var(--gold); border:1px solid rgba(184,151,106,0.35); padding:5px 12px; white-space:nowrap; flex-shrink:0; }
+  .hero-nl-text { font-size:12px; color:rgba(255,255,255,0.45); flex:1; }
+  .hero-nl-form { display:flex; align-items:center; border:1px solid rgba(184,151,106,0.28); flex-shrink:0; }
+  .hero-nl-input { background:transparent; border:none; outline:none; font-family:'Jost',sans-serif; font-size:12px; color:#fff; padding:10px 16px; width:210px; }
+  .hero-nl-input::placeholder { color:rgba(255,255,255,0.22); }
+  .hero-nl-btn { background:var(--gold); border:none; cursor:pointer; font-family:'Jost',sans-serif; font-size:10px; letter-spacing:0.25em; text-transform:uppercase; color:#fff; padding:10px 18px; white-space:nowrap; transition:background 0.3s; }
+  .hero-nl-btn:hover { background:#a47f58; }
+  .hero-nl-close { background:transparent; border:none; cursor:pointer; color:rgba(255,255,255,0.22); font-size:12px; padding:4px 0 4px 8px; }
+
+  section { padding:100px 80px; }
+  .section-label { font-size:10px; letter-spacing:0.35em; text-transform:uppercase; color:var(--gold); margin-bottom:16px; }
+  .section-title { font-family:'Cormorant Garamond',serif; font-size:clamp(32px,4vw,52px); font-weight:300; color:var(--dark); line-height:1.2; margin-bottom:40px; }
+  .section-title em { font-style:italic; color:var(--rose); }
+
+  .intro { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; background:#FAF5F3; }
+  .intro-text p { font-size:15px; line-height:2.0; color:var(--text); margin-bottom:20px; }
+  .intro-text p:first-of-type { font-family:'Cormorant Garamond',serif; font-size:21px; font-style:italic; color:var(--deep); line-height:1.7; }
+  .intro-visual { height:520px; background-size:cover; background-position:center; background-repeat:no-repeat; }
+
+  .moodboard { background:var(--dark); }
+  .moodboard .section-title { color:#fff; }
+  .moodboard .section-label { color:var(--blush); }
+  .moodboard-intro { font-size:14px; color:rgba(232,200,192,0.6); max-width:600px; margin-bottom:56px; line-height:1.9; }
+  .moodboard-grid { display:grid; grid-template-columns:repeat(12,1fr); grid-template-rows:300px 300px; gap:10px; }
+  .mood-item { overflow:hidden; position:relative; background-size:cover; background-position:center; background-repeat:no-repeat; transition:transform 0.7s ease; }
+  .mood-item:nth-child(1) { grid-column:1/6; grid-row:1/2; }
+  .mood-item:nth-child(2) { grid-column:6/9; grid-row:1/2; }
+  .mood-item:nth-child(3) { grid-column:9/13; grid-row:1/3; }
+  .mood-item:nth-child(4) { grid-column:1/4; grid-row:2/3; }
+  .mood-item:nth-child(5) { grid-column:4/9; grid-row:2/3; }
+  .mood-item:hover { transform:scale(1.02); }
+  .mood-label { position:absolute; bottom:14px; left:14px; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.9); background:rgba(42,26,30,0.6); backdrop-filter:blur(4px); padding:6px 12px; }
+
+  .palette-section { background:#F5EDE8; }
+  .palette-grid { display:grid; grid-template-columns:repeat(5,1fr); height:200px; overflow:hidden; margin-bottom:32px; }
+  .palette-swatch { position:relative; cursor:pointer; transition:transform 0.3s; }
+  .palette-swatch:hover { transform:scaleY(1.05); z-index:2; }
+  .sw1{background:#4A1A28} .sw2{background:#8A4A58} .sw3{background:#C4909A} .sw4{background:#DDB8B8} .sw5{background:#F0E0DC}
+  .swatch-info { position:absolute; bottom:0; left:0; right:0; padding:12px; text-align:center; background:rgba(0,0,0,0.22); }
+  .swatch-name { font-size:10px; letter-spacing:0.15em; color:rgba(255,255,255,0.9); text-transform:uppercase; display:block; }
+  .swatch-hex { font-size:9px; color:rgba(255,255,255,0.55); display:block; margin-top:2px; }
+
+  .rooms { background:#FAF5F3; }
+  .rooms-grid { display:grid; grid-template-columns:1fr 1fr; gap:56px; margin-top:56px; }
+  .room-photo { height:400px; margin-bottom:24px; background-size:cover; background-position:center; background-repeat:no-repeat; transition:transform 0.7s ease; }
+  .room-card:hover .room-photo { transform:scale(1.02); }
+  .room-title { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; color:var(--dark); margin-bottom:12px; }
+  .room-desc { font-size:14px; line-height:1.9; color:var(--text); }
+  .room-full { grid-column:1/-1; display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
+  .room-full .room-photo { height:500px; margin-bottom:0; }
+
+  .products { background:var(--dark); }
+  .products .section-title { color:#fff; }
+  .products .section-label { color:var(--blush); }
+  .products-intro { font-size:14px; color:rgba(232,200,192,0.6); max-width:500px; margin-bottom:56px; line-height:1.9; }
+  .products-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; }
+  .product-card { overflow:hidden; cursor:pointer; transition:transform 0.4s; }
+  .product-card:hover { transform:scale(0.985); }
+  .product-img { height:340px; background-size:cover; background-position:center; background-repeat:no-repeat; transition:transform 0.7s ease; }
+  .product-card:hover .product-img { transform:scale(1.03); }
+  .product-info { padding:20px 0 8px; border-top:1px solid rgba(232,200,192,0.12); }
+  .product-cat { font-size:9px; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:6px; }
+  .product-name { font-family:'Cormorant Garamond',serif; font-size:19px; color:#fff; margin-bottom:6px; }
+  .product-desc { font-size:12px; color:rgba(232,200,192,0.48); line-height:1.7; margin-bottom:12px; }
+  .product-link { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--blush); text-decoration:none; border-bottom:1px solid rgba(232,200,192,0.25); padding-bottom:2px; }
+  .product-link:hover { color:var(--gold); }
+
+  .tips { background:#F5E8E8; }
+  .tips-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:40px; margin-top:48px; }
+  .tip-card { padding:40px 32px; background:rgba(255,255,255,0.60); }
+  .tip-number { font-family:'Cormorant Garamond',serif; font-size:64px; font-weight:300; color:rgba(196,144,154,0.2); line-height:1; margin-bottom:16px; }
+  .tip-title { font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:var(--deep); margin-bottom:12px; }
+  .tip-text { font-size:14px; line-height:1.9; color:var(--text); }
+
+  footer { background:var(--dark); padding:56px 80px; display:flex; justify-content:space-between; align-items:center; }
+  .footer-logo { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; letter-spacing:0.3em; text-transform:uppercase; color:#fff; }
+  .footer-logo span { color:var(--gold); }
+  .footer-text { font-size:11px; color:rgba(232,200,192,0.35); letter-spacing:0.1em; margin-top:6px; }
+  .footer-nav { display:flex; gap:24px; }
+  .footer-nav a { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(232,200,192,0.45); text-decoration:none; transition:color 0.3s; }
+  .footer-nav a:hover { color:#fff; }
+
+  .fade-in { opacity:0; transform:translateY(28px); transition:opacity 0.85s ease, transform 0.85s ease; }
+  .fade-in.visible { opacity:1; transform:none; }
+
+  @media (max-width:768px) {
+    header { padding:16px 24px; } nav { display:none; } section { padding:64px 24px; }
+    .hero-content { padding:0 24px 64px; } .hero-scroll { display:none; }
+    .hero-nl-inner { flex-wrap:wrap; padding:12px 24px; gap:12px; }
+    .hero-nl-text { display:none; } .hero-nl-input { width:150px; }
+    .intro { grid-template-columns:1fr; } .intro-visual { height:300px; }
+    .moodboard-grid { grid-template-columns:1fr 1fr; grid-template-rows:auto; }
+    .mood-item { grid-column:auto !important; grid-row:auto !important; height:200px; }
+    .rooms-grid { grid-template-columns:1fr; }
+    .room-full { grid-template-columns:1fr; } .room-full .room-photo { height:280px; }
+    .products-grid { grid-template-columns:1fr; } .tips-grid { grid-template-columns:1fr; }
+    footer { flex-direction:column; gap:24px; text-align:center; padding:40px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">AUR<span>E</span>A</a>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="couleurs.html">Couleurs</a>
+    <a href="#">Inspirations</a>
+    <a href="#">Sélection</a>
+  </nav>
+  <a href="couleurs.html" class="nav-back">← Toutes les couleurs</a>
+</header>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Tendance couleur · Toutes saisons · Palette douce</div>
+    <h1 class="hero-title">Rose Poudré<br><em>&amp; Nude</em></h1>
+    <p class="hero-sub">Du vieux rose profond au nude presque blanc — 5 nuances, leurs associations et leur application pièce par pièce.</p>
+  </div>
+  <div class="hero-nl" id="hero-nl">
+    <div class="hero-nl-inner">
+      <div class="hero-nl-tag">Newsletter</div>
+      <p class="hero-nl-text">Nouvelles palettes, tendances et sélections produits — chaque mois dans votre boîte mail.</p>
+      <div class="hero-nl-form">
+        <input class="hero-nl-input" type="email" placeholder="Votre adresse e-mail" />
+        <button class="hero-nl-btn">S'inscrire</button>
+      </div>
+      <button class="hero-nl-close" onclick="document.getElementById('hero-nl').style.display='none'">✕</button>
+    </div>
+  </div>
+  <div class="hero-scroll">Découvrir</div>
+</section>
+
+<section class="intro fade-in">
+  <div class="intro-text">
+    <div class="section-label">L'Essentiel</div>
+    <h2 class="section-title">Une couleur entre <em>douceur et élégance</em></h2>
+    <p>Le rose poudré couvre un spectre allant du vieux rose intense au nude presque crème. Sa particularité : il reste féminin sans être sucré, élégant sans être froid.</p>
+    <p>Associé au marbre blanc veiné de rose, au velours et au laiton brossé, il crée des intérieurs raffinés et enveloppants. La palette fonctionne aussi bien en chambre qu'en salon ou coiffeuse.</p>
+    <p>Les matières qui l'accompagnent le mieux : velours, soie naturelle, marbre rose, laiton doré.</p>
+  </div>
+  <div class="intro-visual" style="background-image:url('salon2.png')"></div>
+</section>
+
+<section class="moodboard fade-in">
+  <div class="section-label">Moodboard</div>
+  <h2 class="section-title">L'univers <em>Rose Poudré &amp; Nude</em></h2>
+  <p class="moodboard-intro">Cinq visuels, une cohérence. Du salon velours aux détails marbre, les déclinaisons délicates de la palette.</p>
+  <div class="moodboard-grid">
+    <div class="mood-item" style="background-image:url('Salon rose poudre.png')"><span class="mood-label">Salon</span></div>
+    <div class="mood-item" style="background-image:url('rose fanee.png')"><span class="mood-label">Floral</span></div>
+    <div class="mood-item" style="background-image:url('marbre.png')"><span class="mood-label">Marbre</span></div>
+    <div class="mood-item" style="background-image:url('velours.png')"><span class="mood-label">Velours</span></div>
+    <div class="mood-item" style="background-image:url('tons nude et creme.png')"><span class="mood-label">Tons nude</span></div>
+  </div>
+</section>
+
+<section class="palette-section fade-in">
+  <div class="section-label">La Palette</div>
+  <h2 class="section-title">Cinq nuances, <em>une harmonie</em></h2>
+  <div class="palette-grid">
+    <div class="palette-swatch sw1"><div class="swatch-info"><span class="swatch-name">Vieux Rose</span><span class="swatch-hex">#4A1A28</span></div></div>
+    <div class="palette-swatch sw2"><div class="swatch-info"><span class="swatch-name">Rose Antique</span><span class="swatch-hex">#8A4A58</span></div></div>
+    <div class="palette-swatch sw3"><div class="swatch-info"><span class="swatch-name">Rose Poudré</span><span class="swatch-hex">#C4909A</span></div></div>
+    <div class="palette-swatch sw4"><div class="swatch-info"><span class="swatch-name">Blush</span><span class="swatch-hex">#DDB8B8</span></div></div>
+    <div class="palette-swatch sw5"><div class="swatch-info"><span class="swatch-name">Nude Crème</span><span class="swatch-hex">#F0E0DC</span></div></div>
+  </div>
+  <p style="font-size:13px;color:var(--deep);line-height:1.95;max-width:600px;">Ces cinq tons s'harmonisent naturellement dans un dégradé de peau et de pétale. Le rose poudré (#C4909A) est la nuance pivot — suffisamment présent pour structurer, suffisamment doux pour ne jamais dominer.</p>
+</section>
+
+<section class="rooms fade-in">
+  <div class="section-label">Pièce par pièce</div>
+  <h2 class="section-title">La palette <em>dans chaque espace</em></h2>
+  <div class="rooms-grid">
+    <div class="room-card">
+      <div class="room-photo" style="background-image:url('chambre.png')"></div>
+      <h3 class="room-title">La Chambre</h3>
+      <p class="room-desc">Tête de lit velours nude, parure satin rose poudré, coussins blush et crème. Luminaires laiton brossé. La chambre rose poudré atteint un équilibre entre luxe accessible et intimité enveloppante.</p>
+    </div>
+    <div class="room-card">
+      <div class="room-photo" style="background-image:url('coiffeuse.png')"></div>
+      <h3 class="room-title">La Coiffeuse</h3>
+      <p class="room-desc">Plan de travail marbre rose veiné, miroir rond laiton rétro-éclairé, chaise velours blush. La coiffeuse est l'espace signature de la palette — chaque détail renforce la cohérence.</p>
+    </div>
+    <div class="room-full">
+      <div class="room-photo" style="background-image:url('Salon rose poudre.png')"></div>
+      <div>
+        <h3 class="room-title">Le Salon</h3>
+        <p class="room-desc" style="margin-bottom:18px;">Canapé velours vieux rose, table basse marbre blanc, suspension rotin tressé. Le salon rose poudré est chaleureux sans excès — l'art d'un rose qui reste adulte et élégant.</p>
+        <p class="room-desc">Les herbes de la pampa et les roses séchées dans un vase nude complètent l'ambiance sans la surcharger.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="products fade-in">
+  <div class="section-label">Sélection</div>
+  <h2 class="section-title">Les pièces <em>qui font la différence</em></h2>
+  <p class="products-intro">Une sélection resserrée d'objets et de textiles pour adopter la palette Rose Poudré &amp; Nude — de la touche discrète à l'engagement total.</p>
+  <div class="products-grid">
+    <div class="product-card">
+      <div class="product-img" style="background-image:url('coussin velours poudre.png')"></div>
+      <div class="product-info">
+        <div class="product-cat">Textile · Salon</div>
+        <div class="product-name">Coussin Velours Poudré</div>
+        <div class="product-desc">Velours côtelé rose poudré, 45×45 cm. La pièce textile pivot — posé seul ou en trio avec des tons nude et crème.</div>
+        <a href="#" class="product-link">[Lien affilié à ajouter]</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img" style="background-image:url('vase.png')"></div>
+      <div class="product-info">
+        <div class="product-cat">Décoration · Floral</div>
+        <div class="product-name">Vase &amp; Roses Séchées</div>
+        <div class="product-desc">Vase céramique nude mat, roses séchées poudré et pampa blanc. La composition florale signature de la palette.</div>
+        <a href="#" class="product-link">[Lien affilié à ajouter]</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img" style="background-image:url('bougie marbre.png')"></div>
+      <div class="product-info">
+        <div class="product-cat">Décoration · Marbre</div>
+        <div class="product-name">Bougeoir Marbre Rose</div>
+        <div class="product-desc">Marbre rose veiné sculpté, bougie pilier ivoire. La pièce minérale qui ancre toute la palette dans le luxe discret.</div>
+        <a href="#" class="product-link">[Lien affilié à ajouter]</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img" style="background-image:url('lampe soie.png')"></div>
+      <div class="product-info">
+        <div class="product-cat">Luminaire · Chambre</div>
+        <div class="product-name">Lampe Soie &amp; Laiton</div>
+        <div class="product-desc">Base laiton brossé, abat-jour soie rose poudré. Une lumière dorée et tamisée qui sublime chaque nuance de la palette.</div>
+        <a href="#" class="product-link">[Lien affilié à ajouter]</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img" style="background-image:url('parrure.png')"></div>
+      <div class="product-info">
+        <div class="product-cat">Textile · Chambre</div>
+        <div class="product-name">Parure Satin Rose</div>
+        <div class="product-desc">Satin de coton ton vieux rose, finition mate. La parure qui transforme une chambre ordinaire en espace poudré raffiné.</div>
+        <a href="#" class="product-link">[Lien affilié à ajouter]</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img" style="background-image:url('Bougie Rose & Iris.png')"></div>
+      <div class="product-info">
+        <div class="product-cat">Ambiance · Bougie</div>
+        <div class="product-name">Bougie Rose &amp; Iris</div>
+        <div class="product-desc">Cire naturelle rose poudré, contenant verre transparent, parfum rose de mai et iris blanc. L'olfactif délicat de la palette.</div>
+        <a href="#" class="product-link">[Lien affilié à ajouter]</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tips fade-in">
+  <div class="section-label">Les Règles d'Or</div>
+  <h2 class="section-title">Adopter le Rose Poudré <em>sans se tromper</em></h2>
+  <div class="tips-grid">
+    <div class="tip-card">
+      <div class="tip-number">01</div>
+      <div class="tip-title">Éviter le trop-rose</div>
+      <p class="tip-text">La règle d'or : jamais plus de 30% de surface en rose poudré pur. Le reste doit être nude, crème ou blanc. Sans cette proportion, la palette bascule dans le sucré plutôt que dans l'élégant.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-number">02</div>
+      <div class="tip-title">Introduire le minéral</div>
+      <p class="tip-text">Marbre rose, quartz, travertin veiné. Sans élément minéral, la palette rose poudré peut sembler exclusivement textile. Le marbre lui apporte solidité, luxe et ancrage dans le réel.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-number">03</div>
+      <div class="tip-title">Miser sur le laiton</div>
+      <p class="tip-text">Laiton brossé, or mat, bronze antique. Le métal chaud est le seul qui fonctionne vraiment avec cette palette — il réchauffe le rose sans l'alourdir ni le vieillir.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <div class="footer-logo">AUR<span>E</span>A</div>
+    <div class="footer-text">Décoration intérieure · Couleur · Tendances</div>
+  </div>
+  <div class="footer-nav">
+    <a href="#">Pinterest</a>
+    <a href="#">Contact</a>
+    <a href="#">Mentions légales</a>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

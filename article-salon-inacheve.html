@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-30LC353DER"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-30LC353DER");
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pourquoi votre salon semble toujours inachevé — AUREA</title>
+<meta name="description" content="Les salons qui semblent incomplets partagent presque toujours les mêmes 4 erreurs — et elles sont faciles à corriger.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  :root { --cream:#F7F2EE; --dark:#18160F; --gold:#B8976A; --text:#3A3428; --line:rgba(184,151,106,0.2); --muted:#8A7A5A; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Jost',sans-serif; font-weight:300; background:var(--cream); color:var(--text); overflow-x:hidden; }
+
+  header { position:fixed; top:0; left:0; right:0; z-index:100; padding:20px 48px; display:flex; justify-content:space-between; align-items:center; background:rgba(247,242,238,0.92); backdrop-filter:blur(12px); border-bottom:1px solid var(--line); }
+  .logo { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:300; letter-spacing:0.4em; text-transform:uppercase; color:var(--dark); text-decoration:none; }
+  .logo span { color:var(--gold); }
+  nav { display:flex; gap:32px; }
+  nav a { font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); text-decoration:none; transition:color 0.3s; }
+  nav a:hover { color:var(--dark); }
+
+  .article-hero { height:65vh; min-height:460px; position:relative; overflow:hidden; background:url('grege_salon_full.png') center/cover no-repeat; }
+  .article-hero-veil { position:absolute; inset:0; background:linear-gradient(to bottom, rgba(24,22,15,0.15) 0%, rgba(24,22,15,0.72) 100%); }
+  .article-hero-content { position:absolute; bottom:0; left:0; right:0; padding:64px 80px; }
+  .article-back { display:inline-flex; align-items:center; gap:10px; font-size:10px; letter-spacing:0.3em; text-transform:uppercase; color:rgba(255,255,255,0.5); text-decoration:none; margin-bottom:24px; transition:color 0.3s; }
+  .article-back:hover { color:var(--gold); }
+  .article-tag { display:inline-block; font-size:9px; letter-spacing:0.35em; text-transform:uppercase; color:#fff; background:var(--gold); padding:7px 14px; margin-bottom:20px; }
+  .article-hero-title { font-family:'Cormorant Garamond',serif; font-size:clamp(36px,5vw,68px); font-weight:300; color:#fff; line-height:1.1; max-width:800px; }
+  .article-hero-title em { font-style:italic; color:rgba(247,242,238,0.5); }
+  .article-hero-meta { display:flex; gap:32px; margin-top:24px; }
+  .article-hero-meta span { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.4); }
+  .article-hero-meta span b { color:var(--gold); font-weight:300; margin-right:6px; }
+
+  .article-body { max-width:780px; margin:0 auto; padding:80px 48px 120px; }
+  .article-intro { font-family:'Cormorant Garamond',serif; font-size:clamp(20px,2.5vw,26px); font-weight:300; line-height:1.7; color:var(--dark); margin-bottom:56px; padding-bottom:56px; border-bottom:1px solid var(--line); }
+  .article-intro em { font-style:italic; color:var(--muted); }
+  h2.section-h { font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:300; color:var(--dark); margin-bottom:20px; line-height:1.2; }
+  h2.section-h em { font-style:italic; color:var(--gold); }
+  .article-p { font-size:15px; line-height:2; color:var(--text); margin-bottom:24px; }
+  .article-p strong { color:var(--dark); font-weight:400; }
+
+  /* ERREUR CARD */
+  .erreur-card { display:grid; grid-template-columns:64px 1fr; gap:28px; align-items:start; margin:40px 0; padding:36px; background:#fff; }
+  .erreur-num { font-family:'Cormorant Garamond',serif; font-size:56px; font-weight:300; color:rgba(184,151,106,0.25); line-height:1; }
+  .erreur-title { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:300; color:var(--dark); margin-bottom:12px; line-height:1.2; }
+  .erreur-title em { font-style:italic; color:#C47A6A; }
+  .erreur-desc { font-size:14px; line-height:1.9; color:var(--text); margin-bottom:12px; }
+  .erreur-solution { font-size:13px; line-height:1.8; color:#7A9A6A; padding-left:16px; border-left:2px solid #7A9A6A; }
+
+  .pull-quote { padding:48px 0; margin:48px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .pull-quote p { font-family:'Cormorant Garamond',serif; font-size:clamp(22px,3vw,32px); font-weight:300; font-style:italic; color:var(--dark); line-height:1.5; }
+  .pull-quote cite { display:block; margin-top:16px; font-size:10px; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); font-style:normal; }
+
+  .articles-nav { display:grid; grid-template-columns:1fr 1fr; gap:2px; margin-top:80px; }
+  .nav-article { padding:32px; background:#fff; text-decoration:none; transition:background 0.3s; }
+  .nav-article:hover { background:var(--dark); }
+  .nav-article:hover .nav-article-title { color:#fff; }
+  .nav-article:hover .nav-article-dir { color:var(--gold); }
+  .nav-article-dir { font-size:9px; letter-spacing:0.3em; text-transform:uppercase; color:var(--muted); margin-bottom:10px; display:block; }
+  .nav-article-title { font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:300; color:var(--dark); line-height:1.3; transition:color 0.3s; }
+
+  footer { background:var(--dark); padding:56px 80px; display:flex; justify-content:space-between; align-items:center; }
+  .footer-logo { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; letter-spacing:0.3em; text-transform:uppercase; color:#fff; }
+  .footer-logo span { color:var(--gold); }
+  .footer-text { font-size:11px; color:rgba(247,242,238,0.3); letter-spacing:0.1em; margin-top:6px; }
+  .footer-nav { display:flex; gap:24px; }
+  .footer-nav a { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(247,242,238,0.4); text-decoration:none; transition:color 0.3s; }
+  .footer-nav a:hover { color:#fff; }
+
+  .fade-in { opacity:0; transform:translateY(20px); transition:opacity 0.7s ease, transform 0.7s ease; }
+  .fade-in.visible { opacity:1; transform:none; }
+
+  @media (max-width:768px) {
+    header { padding:16px 24px; } nav { display:none; }
+    .article-hero-content { padding:40px 24px; }
+    .article-body { padding:48px 24px 80px; }
+    .erreur-card { grid-template-columns:1fr; }
+    .articles-nav { grid-template-columns:1fr; }
+    footer { flex-direction:column; gap:24px; text-align:center; padding:40px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">AUR<span>E</span>A</a>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="couleurs.html">Couleurs</a>
+    <a href="inspirations.html">Inspirations</a>
+    <a href="selection.html">Sélection</a>
+  </nav>
+</header>
+
+<div class="article-hero">
+  <div class="article-hero-veil"></div>
+  <div class="article-hero-content">
+    <a href="inspirations.html" class="article-back">← Retour aux inspirations</a>
+    <div class="article-tag">Conseils</div>
+    <h1 class="article-hero-title">Pourquoi votre salon semble<br><em>toujours inachevé</em></h1>
+    <div class="article-hero-meta">
+      <span><b>→</b> Janvier 2026</span>
+      <span><b>→</b> 4 min de lecture</span>
+      <span><b>→</b> Conseils</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <p class="article-intro fade-in">Ce n'est pas une question de budget. Ce n'est pas une question de taille. Les salons qui semblent incomplets <em>partagent presque toujours les mêmes erreurs</em> — et elles sont plus faciles à corriger qu'on ne le croit.</p>
+
+  <div class="fade-in">
+    <p class="article-p">Vous avez investi dans de beaux meubles. Vous avez choisi vos couleurs avec soin. Et pourtant, à chaque fois que vous entrez dans votre salon, vous avez l'impression qu'il manque quelque chose. <strong>Ce sentiment a un nom : le syndrome de l'espace inachevé.</strong> Et il est presque toujours causé par l'une de ces quatre erreurs.</p>
+  </div>
+
+  <div class="erreur-card fade-in">
+    <div class="erreur-num">01</div>
+    <div>
+      <div class="erreur-title">L'éclairage <em>unique</em></div>
+      <p class="erreur-desc">Un plafonnier central, aussi beau soit-il, crée une lumière uniforme qui aplatit l'espace. Il n'y a ni ombre, ni profondeur, ni chaleur. L'espace semble fonctionnel, pas habité.</p>
+      <p class="erreur-solution">La solution : superposer trois niveaux d'éclairage — un plafonnier pour la lumière générale, une lampe de sol pour la lumière d'ambiance, et une ou deux lampes de table pour les zones de chaleur.</p>
+    </div>
+  </div>
+
+  <div class="erreur-card fade-in">
+    <div class="erreur-num">02</div>
+    <div>
+      <div class="erreur-title">Le tapis <em>trop petit</em></div>
+      <p class="erreur-desc">C'est l'erreur numéro un des intérieurs qui semblent inachevés. Un tapis trop petit "flotte" au milieu de la pièce sans créer de zone. Les meubles semblent déconnectés les uns des autres.</p>
+      <p class="erreur-solution">La solution : le tapis doit être suffisamment grand pour que les pattes avant de tous les sièges reposent dessus. En cas de doute, choisissez toujours la taille au-dessus.</p>
+    </div>
+  </div>
+
+  <div class="pull-quote fade-in">
+    <p>« Un salon réussi n'est pas celui où l'on remarque les objets, mais celui où l'on se sent immédiatement bien. »</p>
+    <cite>Principe AUREA</cite>
+  </div>
+
+  <div class="erreur-card fade-in">
+    <div class="erreur-num">03</div>
+    <div>
+      <div class="erreur-title">L'absence de <em>hauteur</em></div>
+      <p class="erreur-desc">La plupart des décorations s'accumulent à hauteur de table et de canapé. Le regard n'est jamais guidé vers le haut. L'espace semble écrasé, même quand les plafonds sont hauts.</p>
+      <p class="erreur-solution">La solution : introduire au moins un élément vertical fort — une grande plante, des étagères murales, un tableau imposant, des rideaux qui montent jusqu'au plafond. Un seul suffit à transformer la perception de la hauteur.</p>
+    </div>
+  </div>
+
+  <div class="erreur-card fade-in">
+    <div class="erreur-num">04</div>
+    <div>
+      <div class="erreur-title">Trop de <em>petits objets</em></div>
+      <p class="erreur-desc">Une collection de petits objets dispersés crée du bruit visuel. L'œil ne sait où se poser. L'espace semble chargé et inachevé en même temps — paradoxalement, plus on ajoute, moins c'est satisfaisant.</p>
+      <p class="erreur-solution">La solution : regrouper les petits objets en compositions de trois, ou les remplacer par un seul objet de grande taille. Moins d'objets, mieux choisis, bien disposés — c'est toujours plus efficace.</p>
+    </div>
+  </div>
+
+  <div class="articles-nav fade-in">
+    <a href="article-matieres.html" class="nav-article">
+      <span class="nav-article-dir">← Article précédent</span>
+      <div class="nav-article-title">Lin, velours, marbre : mixer sans se tromper</div>
+    </a>
+    <a href="article-exposition.html" class="nav-article" style="text-align:right;">
+      <span class="nav-article-dir">Article suivant →</span>
+      <div class="nav-article-title">Quelle palette selon l'exposition de votre pièce</div>
+    </a>
+  </div>
+
+</div>
+
+<footer>
+  <div>
+    <div class="footer-logo">AUR<span>E</span>A</div>
+    <div class="footer-text">Décoration intérieure · Couleur · Tendances</div>
+  </div>
+  <div class="footer-nav">
+    <a href="#">Pinterest</a>
+    <a href="#">Contact</a>
+    <a href="#">Mentions légales</a>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-30LC353DER"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-30LC353DER");
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Les Palettes — AUREA</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  :root { --cream:#F7F2EE; --dark:#18160F; --gold:#B8976A; --text:#3A3428; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Jost',sans-serif; font-weight:300; background:var(--cream); color:var(--text); overflow-x:hidden; }
+
+  header { position:fixed; top:0; left:0; right:0; z-index:100; padding:20px 48px; display:flex; justify-content:space-between; align-items:center; background:rgba(247,242,238,0.92); backdrop-filter:blur(12px); border-bottom:1px solid rgba(184,151,106,0.2); }
+  .logo { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:300; letter-spacing:0.4em; text-transform:uppercase; color:var(--dark); text-decoration:none; }
+  .logo span { color:var(--gold); }
+  nav { display:flex; gap:32px; }
+  nav a { font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:#8A7A5A; text-decoration:none; transition:color 0.3s; }
+  nav a:hover, nav a.active { color:var(--dark); }
+
+  /* HERO */
+  .page-hero { padding:160px 80px 80px; background:var(--dark); position:relative; overflow:hidden; }
+  .page-hero::after { content:''; position:absolute; bottom:0; left:80px; right:80px; height:1px; background:linear-gradient(to right, transparent, rgba(184,151,106,0.4), transparent); }
+  .page-hero-label { font-size:10px; letter-spacing:0.4em; text-transform:uppercase; color:var(--gold); margin-bottom:20px; }
+  .page-hero-title { font-family:'Cormorant Garamond',serif; font-size:clamp(40px,6vw,80px); font-weight:300; color:#fff; line-height:1.1; max-width:700px; }
+  .page-hero-title em { font-style:italic; color:rgba(247,242,238,0.5); }
+  .page-hero-sub { margin-top:24px; font-size:14px; color:rgba(255,255,255,0.4); max-width:500px; line-height:1.9; }
+  .palette-count { position:absolute; right:80px; bottom:80px; font-family:'Cormorant Garamond',serif; font-size:80px; font-weight:300; color:rgba(184,151,106,0.15); line-height:1; }
+
+  /* FILTERS */
+  .filters { padding:40px 80px; display:flex; gap:12px; align-items:center; border-bottom:1px solid rgba(184,151,106,0.15); }
+  .filter-label { font-size:10px; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-right:8px; }
+  .filter-btn { font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:#8A7A5A; background:transparent; border:1px solid rgba(184,151,106,0.25); padding:8px 18px; cursor:pointer; transition:all 0.3s; font-family:'Jost',sans-serif; }
+  .filter-btn:hover, .filter-btn.active { background:var(--dark); color:#fff; border-color:var(--dark); }
+
+  /* GRID */
+  .palettes-section { padding:60px 80px 100px; }
+  .palettes-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:2px; }
+
+  /* CARTE PALETTE */
+  .palette-card { position:relative; display:block; text-decoration:none; overflow:hidden; cursor:pointer; }
+  .palette-card.large { grid-column:span 2; }
+  .palette-card .card-bg { height:480px; background-size:cover; background-position:center; background-repeat:no-repeat; transition:transform 0.9s ease; }
+  .palette-card.large .card-bg { height:580px; }
+  .palette-card:hover .card-bg { transform:scale(1.04); }
+  .card-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(24,22,15,0.85) 0%, rgba(24,22,15,0.1) 50%, transparent 100%); transition:opacity 0.4s; }
+  .palette-card:hover .card-overlay { opacity:0.9; }
+  .card-content { position:absolute; bottom:0; left:0; right:0; padding:32px; }
+  .card-swatches { display:flex; gap:5px; margin-bottom:16px; }
+  .card-swatch { width:20px; height:20px; border-radius:50%; border:1px solid rgba(255,255,255,0.2); }
+  .card-tag { font-size:9px; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); margin-bottom:8px; display:block; }
+  .card-name { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; color:#fff; line-height:1.1; margin-bottom:8px; }
+  .palette-card.large .card-name { font-size:40px; }
+  .card-name em { font-style:italic; color:rgba(247,242,238,0.65); }
+  .card-desc { font-size:12px; color:rgba(255,255,255,0.45); line-height:1.7; max-width:320px; }
+  .card-arrow { position:absolute; top:24px; right:24px; width:40px; height:40px; border:1px solid rgba(255,255,255,0.2); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.5); font-size:16px; transition:all 0.3s; opacity:0; }
+  .palette-card:hover .card-arrow { opacity:1; color:#fff; border-color:rgba(255,255,255,0.5); }
+
+  /* INTRO TEXTE */
+  .intro-band { padding:60px 80px; background:#F0EAE0; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+  .intro-band-title { font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:300; color:var(--dark); line-height:1.3; }
+  .intro-band-title em { font-style:italic; color:var(--gold); }
+  .intro-band-text { font-size:14px; line-height:1.95; color:var(--text); }
+
+  .fade-in { opacity:0; transform:translateY(24px); transition:opacity 0.8s ease, transform 0.8s ease; }
+  .fade-in.visible { opacity:1; transform:none; }
+
+  footer { background:var(--dark); padding:56px 80px; display:flex; justify-content:space-between; align-items:center; }
+  .footer-logo { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; letter-spacing:0.3em; text-transform:uppercase; color:#fff; }
+  .footer-logo span { color:var(--gold); }
+  .footer-text { font-size:11px; color:rgba(247,242,238,0.3); letter-spacing:0.1em; margin-top:6px; }
+  .footer-nav { display:flex; gap:24px; }
+  .footer-nav a { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(247,242,238,0.4); text-decoration:none; transition:color 0.3s; }
+  .footer-nav a:hover { color:#fff; }
+
+  @media (max-width:768px) {
+    header { padding:16px 24px; } nav { display:none; }
+    .page-hero { padding:120px 24px 60px; }
+    .filters { padding:24px; flex-wrap:wrap; }
+    .palettes-section { padding:32px 0 60px; }
+    .palettes-grid { grid-template-columns:1fr; }
+    .palette-card.large { grid-column:span 1; }
+    .palette-card .card-bg, .palette-card.large .card-bg { height:320px; }
+    .intro-band { grid-template-columns:1fr; padding:40px 24px; gap:24px; }
+    footer { flex-direction:column; gap:24px; text-align:center; padding:40px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">AUR<span>E</span>A</a>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="couleurs.html" class="active">Couleurs</a>
+    <a href="inspirations.html">Inspirations</a>
+    <a href="selection.html">Sélection</a>
+    <a href="a-propos.html">À propos</a>
+  </nav>
+</header>
+
+<div class="page-hero">
+  <div class="page-hero-label">Catalogue de palettes</div>
+  <h1 class="page-hero-title">Toutes les <em>couleurs</em></h1>
+  <p class="page-hero-sub">Des palettes soigneusement sélectionnées pour composer des intérieurs cohérents, du plus lumineux au plus profond.</p>
+</div>
+
+<div class="filters fade-in">
+  <span class="filter-label">Filtrer</span>
+  <button class="filter-btn active">Toutes</button>
+  <button class="filter-btn">Douces</button>
+  <button class="filter-btn">Profondes</button>
+  <button class="filter-btn">Neutres</button>
+  <button class="filter-btn">Chaleureuses</button>
+  <button class="filter-btn">Extérieur</button>
+</div>
+
+<section class="palettes-section">
+  <div class="palettes-grid">
+
+    <!-- BLEU ÂGE DE GLACE — large -->
+    <a href="bleu-age-de-glace.html" class="palette-card large fade-in">
+      <div class="card-bg" style="background-image:url('living room.png'); background-color:#4A6878;"></div>
+      <div class="card-overlay"></div>
+      <div class="card-arrow">→</div>
+      <div class="card-content">
+        <div class="card-swatches">
+          <div class="card-swatch" style="background:#1A2E3A"></div>
+          <div class="card-swatch" style="background:#2A5068"></div>
+          <div class="card-swatch" style="background:#6A9AB0"></div>
+          <div class="card-swatch" style="background:#A8C8D8"></div>
+          <div class="card-swatch" style="background:#E8F0F4"></div>
+        </div>
+        <span class="card-tag">Fraîche · Minérale · Apaisante</span>
+        <div class="card-name">Bleu Âge<br><em>de Glace</em></div>
+        <p class="card-desc">Du bleu glacier profond au blanc givré — une palette minérale et sereine inspirée des paysages nordiques.</p>
+      </div>
+    </a>
+
+    <!-- GRÈGE & CACHEMIRE -->
+    <a href="grege-cachemire.html" class="palette-card fade-in">
+      <div class="card-bg" style="background-image:url('grege_salon_hero.png'); background-color:#B8A898;"></div>
+      <div class="card-overlay"></div>
+      <div class="card-arrow">→</div>
+      <div class="card-content">
+        <div class="card-swatches">
+          <div class="card-swatch" style="background:#2A221E"></div>
+          <div class="card-swatch" style="background:#5A4A3A"></div>
+          <div class="card-swatch" style="background:#8A7868"></div>
+          <div class="card-swatch" style="background:#B8A898"></div>
+          <div class="card-swatch" style="background:#F0EAE0"></div>
+        </div>
+        <span class="card-tag">Neutre · Intemporelle · Luxueuse</span>
+        <div class="card-name">Grège<br><em>&amp; Cachemire</em></div>
+        <p class="card-desc">La palette la plus élégante — du brun doux au crème ivoire, l'art du luxe discret.</p>
+      </div>
+    </a>
+
+    <!-- TERRACOTTA SOLAIRE -->
+    <a href="terracotta-solaire.html" class="palette-card fade-in">
+      <div class="card-bg" style="background-image:url('Salon terracota.png'); background-color:#C8845A;"></div>
+      <div class="card-overlay"></div>
+      <div class="card-arrow">→</div>
+      <div class="card-content">
+        <div class="card-swatches">
+          <div class="card-swatch" style="background:#5A2A10"></div>
+          <div class="card-swatch" style="background:#A06830"></div>
+          <div class="card-swatch" style="background:#C8845A"></div>
+          <div class="card-swatch" style="background:#E8A878"></div>
+          <div class="card-swatch" style="background:#F5DEC8"></div>
+        </div>
+        <span class="card-tag">Chaude · Méditerranéenne · Vivante</span>
+        <div class="card-name">Terracotta<br><em>Solaire</em></div>
+        <p class="card-desc">Du brun épicé à l'abricot doré — la chaleur de la Méditerranée dans vos intérieurs.</p>
+      </div>
+    </a>
+
+    <!-- JAUNE PAILLE & LIN — large -->
+    <a href="jaune-paille-lin.html" class="palette-card large fade-in">
+      <div class="card-bg" style="background-image:url('paille_salon_hero.png'); background-color:#D4C47A;"></div>
+      <div class="card-overlay"></div>
+      <div class="card-arrow">→</div>
+      <div class="card-content">
+        <div class="card-swatches">
+          <div class="card-swatch" style="background:#2A2410"></div>
+          <div class="card-swatch" style="background:#6A5A20"></div>
+          <div class="card-swatch" style="background:#A89848"></div>
+          <div class="card-swatch" style="background:#D4C47A"></div>
+          <div class="card-swatch" style="background:#F5F0DC"></div>
+        </div>
+        <span class="card-tag">Lumineuse · Naturelle · Scandinave</span>
+        <div class="card-name">Jaune Paille<br><em>&amp; Lin</em></div>
+        <p class="card-desc">Du jaune paille lumineux au lin naturel — la palette qui capture l'essence de la lumière nordique dans un intérieur apaisé.</p>
+      </div>
+    </a>
+
+    <!-- VERT SAUGE & OLIVE -->
+    <a href="vert-sauge.html" class="palette-card fade-in">
+      <div class="card-bg" style="background-image:url('Salon.png'); background-color:#7A9A7A;"></div>
+      <div class="card-overlay"></div>
+      <div class="card-arrow">→</div>
+      <div class="card-content">
+        <div class="card-swatches">
+          <div class="card-swatch" style="background:#1A2A1A"></div>
+          <div class="card-swatch" style="background:#2A3D2A"></div>
+          <div class="card-swatch" style="background:#6B7A3A"></div>
+          <div class="card-swatch" style="background:#7A9A7A"></div>
+          <div class="card-swatch" style="background:#C8D4C0"></div>
+        </div>
+        <span class="card-tag">Végétale · Apaisante · Naturelle</span>
+        <div class="card-name">Vert Sauge<br><em>&amp; Olive</em></div>
+        <p class="card-desc">Du vert forêt profond à la brume végétale — la palette qui réconcilie l'intérieur avec la nature.</p>
+      </div>
+    </a>
+
+    <!-- ROSE POUDRÉ & NUDE -->
+    <a href="rose-poudre.html" class="palette-card fade-in">
+      <div class="card-bg" style="background-image:url('Salon rose poudre.png'); background-color:#C4909A;"></div>
+      <div class="card-overlay"></div>
+      <div class="card-arrow">→</div>
+      <div class="card-content">
+        <div class="card-swatches">
+          <div class="card-swatch" style="background:#4A1A28"></div>
+          <div class="card-swatch" style="background:#8A4A58"></div>
+          <div class="card-swatch" style="background:#C4909A"></div>
+          <div class="card-swatch" style="background:#DDB8B8"></div>
+          <div class="card-swatch" style="background:#F0E0DC"></div>
+        </div>
+        <span class="card-tag">Douce · Féminine · Raffinée</span>
+        <div class="card-name">Rose Poudré<br><em>&amp; Nude</em></div>
+        <p class="card-desc">Du vieux rose profond au nude presque blanc — l'élégance discrète d'une palette délicatement féminine.</p>
+      </div>
+    </a>
+
+    <!-- BORDEAUX & COGNAC -->
+    <a href="bordeaux-cognac.html" class="palette-card fade-in">
+      <div class="card-bg" style="background-image:url('bordeaux_salon_hero.png'); background-color:#7A1A2A;"></div>
+      <div class="card-overlay"></div>
+      <div class="card-arrow">→</div>
+      <div class="card-content">
+        <div class="card-swatches">
+          <div class="card-swatch" style="background:#3A0A10"></div>
+          <div class="card-swatch" style="background:#7A1A2A"></div>
+          <div class="card-swatch" style="background:#C8784A"></div>
+          <div class="card-swatch" style="background:#D4A870"></div>
+          <div class="card-swatch" style="background:#F5EAE0"></div>
+        </div>
+        <span class="card-tag">Profonde · Luxueuse · Dramatique</span>
+        <div class="card-name">Bordeaux<br><em>&amp; Cognac</em></div>
+        <p class="card-desc">Du bordeaux nuit au cognac doré — la palette la plus enveloppante pour des intérieurs d'une richesse rare.</p>
+      </div>
+    </a>
+
+    <!-- JARDIN RUSTIQUE — large, tendance printemps -->
+    <a href="palette-jardin-rustique.html" class="palette-card large fade-in">
+      <div class="card-bg" style="background-image:url('jardin_salon_guinguette.png'); background-color:#7A9A7A;"></div>
+      <div class="card-overlay"></div>
+      <div class="card-arrow">→</div>
+      <div class="card-content">
+        <div class="card-swatches">
+          <div class="card-swatch" style="background:#4A3A2A"></div>
+          <div class="card-swatch" style="background:#C4714A"></div>
+          <div class="card-swatch" style="background:#B89B6A"></div>
+          <div class="card-swatch" style="background:#7A9A7A"></div>
+          <div class="card-swatch" style="background:#8A85AA"></div>
+          <div class="card-swatch" style="background:#E8E0D5"></div>
+        </div>
+        <span class="card-tag">Naturelle · Rustique · Extérieur · Printemps 2026</span>
+        <div class="card-name">Jardin<br><em>Rustique</em></div>
+        <p class="card-desc">Terre cuite, bois blanchi, vert sauge et lavande — la palette cottage garden pour un extérieur authentique et chaleureux.</p>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<div class="intro-band fade-in">
+  <div>
+    <h2 class="intro-band-title">Chaque palette,<br>une <em>philosophie</em></h2>
+  </div>
+  <p class="intro-band-text">Chaque palette AUREA est conçue comme un système complet — cinq nuances, leurs associations matières, leurs applications pièce par pièce et une sélection de produits pour les adopter. Du salon à la chambre, du textile au minéral, chaque palette vous guide vers un intérieur cohérent et personnalisé.</p>
+</div>
+
+<footer>
+  <div>
+    <div class="footer-logo">AUR<span>E</span>A</div>
+    <div class="footer-text">Décoration intérieure · Couleur · Tendances</div>
+  </div>
+  <div class="footer-nav">
+    <a href="https://pinterest.com/bilan.aurea" target="_blank">Pinterest</a>
+    <a href="a-propos.html">Contact</a>
+    <a href="#">Mentions légales</a>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
