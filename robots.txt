@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /pinterest-2707f.html
+
+Sitemap: https://www.bilan-aurea.fr/sitemap.xml
